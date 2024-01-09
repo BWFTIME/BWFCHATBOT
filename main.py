@@ -20,10 +20,10 @@ API_HASH = os.environ.get("API_HASH", "")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "") 
 MONGO_URL = os.environ.get("MONGO_URL", "")
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "") 
-UPDATE_CHNL = os.environ.get("UPDATE_CHNL", "Venomowners")
-OWNER_ID = os.environ.get("OWNER_ID", "6306738739")
-OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Venom_bolti_public")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP", "Venom_Chatz")
+UPDATE_CHNL = os.environ.get("UPDATE_CHNL", "BWF_MUSIC1")
+OWNER_ID = os.environ.get("OWNER_ID", "6052880487")
+OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "L2R_KING0")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP", "MUSICBOT_OWNER")
 BOT_NAME = os.environ.get("BOT_NAME", "")
 START_IMG1 = os.environ.get("START_IMG1", "https://te.legra.ph/file/a406783ab421e5c53ab13.jpg")
 START_IMG2 = os.environ.get("START_IMG2")
@@ -112,7 +112,7 @@ START = f"""
 """
 DEV_OP = [
     [
-        InlineKeyboardButton(text="🔮 𝐎ωиєя 🔮", url=f"t.me/{OWNER_USERNAME}"),
+        InlineKeyboardButton(text="👑 𝐎ωиєя 👑", url=f"t.me/{OWNER_USERNAME}"),
         InlineKeyboardButton(text="💌 ʙω͠ғꜱᴜᴘᴘᴏʀᴛ 💌", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
     [
@@ -283,7 +283,7 @@ ABOUT_BTN = [
            InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="BACK"),
       ],
 ]
-SOURCE_READ = f"**ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ ✯**\n**──────────────────**\n**ʜᴇʀᴇ ɪs ᴛʜᴇ [sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ](https://t.me/MUSICBOT_OWNER)**\n**──────────────────**\n**ɪғ ʏᴏᴜ ғᴀᴄᴇ ᴀɴʏ ᴘʀᴏʙʟᴇᴍ ᴛʜᴇɴ ᴄᴏɴᴛᴀᴄᴛ ᴀᴛ [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
+SOURCE_READ = f"**🧸ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ🍃 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) 🕊ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ @L2R_KING0 💌.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ 🍷**\n**🌷──────────────────🌷**\n**♦️ʜᴇʀᴇ ɪs ᴛʜᴇ 💫 [🕊ʙωғ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ꭙ](https://t.me/MUSICBOT_OWNER)**\n**🍧──────────────────🍧**\n**🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨[sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
 
 ABOUT_READ = f"""
 **➻ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛ-ʙᴏᴛ.**
@@ -312,7 +312,7 @@ async def restart(client, m: Message):
         await umm.delete()
         await m.reply_photo(
             photo = random.choice(PHOTO),
-            caption=f"""**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}](t.me/{BOT_USERNAME})**\n**➻🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨.**\n**──────────────**\n**💬ᴜsᴀɢᴇ /chatbot [🔊ᴏɴ♦️ᴏғғ🔇]**\n<b>||🍧ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ❣️||</b>""",
+            caption=f"""**👻ʜᴇʏ ɪ ᴀᴍ🍒 [{BOT_NAME}](t.me/{BOT_USERNAME})**\n**➻🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨.**\n**──────────────**\n**💬ᴜsᴀɢᴇ /chatbot [🔊ᴏɴ♦️ᴏғғ🔇]**\n<b>||🍧ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ❣️||</b>""",
             reply_markup=InlineKeyboardMarkup(DEV_OP),
         )
         await add_served_user(m.from_user.id)
