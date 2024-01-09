@@ -283,7 +283,7 @@ ABOUT_BTN = [
            InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="BACK"),
       ],
 ]
-SOURCE_READ = f"**🧸ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ🍃 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) 🕊ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ @L2R_KING0 💌.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ 🍷**\n**🌷──────────────────🌷**\n**♦️ʜᴇʀᴇ ɪs ᴛʜᴇ 💫 [🕊ʙωғ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ꭙ](https://t.me/MUSICBOT_OWNER)**\n**🍧──────────────────🍧**\n**🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨[sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
+SOURCE_READ = f"**🧸ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ🍃 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) 🕊ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ @L2R_KING0 💌.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ 🍷**\n**🌷──────────────────🌷**\n**♦️ʜᴇʀᴇ ɪs ᴛʜᴇ 💫 [🕊ʙωғ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ](https://t.me/MUSICBOT_OWNER)**\n**🍧──────────────────🍧**\n**🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨[sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
 
 ABOUT_READ = f"""
 **➻ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛ-ʙᴏᴛ.**
