@@ -13,19 +13,27 @@
     ],
     "env": {
         "BOT_TOKEN": {
-            "description": "telegram bot token here",
+            "description": "💬telegram bot token here🔊",
             "required": true
         },        
+        "MONGO_URL": {
+            "description": "🍧mongo db url here🕊️",
+            "required": true
+        },
         "BOT_USERNAME": {
-            "description": "telegram bot username here without @",
+            "description": "👑telegram bot username here without @👑",
             "required": true
         },
         "OWNER_USERNAME": {
-            "description": "Owner Username without @",
+            "description": "♦️Owner Username without @🦋",
             "required": true
         },
-        "OWNER_USERNAME": {
-            "description": "Owner Username without @",
+        "BOT_NAME": {
+            "description": "💌Simple Bot-name. Do not use Modified Text..🙊",
+            "required": true
+        },
+        "SUPPORT_GRP": {
+            "description": "🍒Your Support Group without @❣️",
             "required": true
         }
     },
@@ -34,4 +42,4 @@
             "plan": "heroku-postgresql"
         }
     ]
-}
+        }
