@@ -27,8 +27,6 @@
         "OWNER_USERNAME": {
             "description": "Owner Username without @",
             "required": true
-        },
-        "BOT_N
         }
     },
     "addons": [
