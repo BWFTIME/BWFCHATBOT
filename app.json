@@ -1,6 +1,6 @@
 {
-    "name": "💌𝐁ω͠ғ ᴄʜᴀᴛ 𝐁σт💨",   
-    "logo": "https://telegra.ph/file/bd17a873500dbcf27fb33.jpg", 
+    "name": "𝐈𝛕ᷟ‌𝚣⃪ꙴ ⋆‌⃝ᴅᴀʀᴋ𓃭 ⃟ǫᴜᴇᴇɴ⛦⃕‌༆",   
+    "logo": "https://telegra.ph/file/7493a1557d9f29e45bc77.jpg", 
     "keywords": [
     "python3",
     "telegram",
@@ -13,27 +13,115 @@
     ],
     "env": {
         "BOT_TOKEN": {
-            "description": "💬telegram bot token here🔊",
+            "description": "telegram bot token here",
             "required": true
         },        
         "MONGO_URL": {
-            "description": "🍧mongo db url here🕊️",
+            "description": "mongo db url here",
             "required": true
         },
         "BOT_USERNAME": {
-            "description": "👑telegram bot username here without @👑",
+            "description": "telegram bot username here without @",
             "required": true
         },
         "OWNER_USERNAME": {
-            "description": "♦️Owner Username without @🦋",
+            "description": "Owner Username without @",
             "required": true
         },
         "BOT_NAME": {
-            "description": "💌Simple Bot-name. Do not use Modified Text..🙊",
+            "description": "Simple Bot-name. Do not use Modified Text..",
+            "required": true
+        },
+        "UPDATE_CHNL": {
+            "description": "Your Updates Channel without @",
             "required": true
         },
         "SUPPORT_GRP": {
-            "description": "🍒Your Support Group without @❣️",
+            "description": "Your Support Group without @",
+            "required": true
+        },
+        "STKR": {
+            "description": "Sticker for start ",
+            "required": false
+        },
+        "STKR1": {
+            "description": "Sticker for start ",
+            "required": false
+        },
+        "STKR2": {
+            "description": "Sticker for start ",
+            "required": false
+        },
+        "STKR3": {
+            "description": "Sticker for start ",
+            "required": false
+        },
+        "STKR4": {
+            "description": "Sticker for start ",
+            "required": false 
+        },
+        "STKR5": {
+            "description": "Sticker for start ",
+            "required": false 
+        },
+        "STKR6": {
+            "description": "Sticker for start ",
+            "required": false 
+        },
+        "STKR7": {
+            "description": "Sticker for start ",
+            "required": false 
+        },
+       "STKR8": {
+            "description": "Sticker for start ",
+            "required": false 
+        },
+        "START_IMG1": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG2": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG3": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG4": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG5": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG6": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG7": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG8": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG9": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "START_IMG10": {
+            "description": "Start Image For Bot.",
+            "required": true
+        },
+        "API_ID": {
+            "description": "telegram api id here",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "telegram api hash here",
             "required": true
         }
     },
@@ -42,4 +130,4 @@
             "plan": "heroku-postgresql"
         }
     ]
-        }
+    }
