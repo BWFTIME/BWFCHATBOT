@@ -1,5 +1,5 @@
-#Don't remove This Line From Here. @BWFTIME | @BWFTIME
-#Github :- @BWFTIME
+#Don't remove This Line From Here. @venombolteop | @venombolteop
+#Github :- @venombolteop
 import requests
 import random
 import os
@@ -15,26 +15,26 @@ from pymongo import MongoClient
 from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 
 
-API_ID = os.environ.get("API_ID", "23392712") 
-API_HASH = os.environ.get("API_HASH", "7cb236b197b25c243fa83e7e0173d0e6") 
+API_ID = os.environ.get("API_ID", "") 
+API_HASH = os.environ.get("API_HASH", "") 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "") 
-MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://BWFMUSIC:BWFMUSIC@cluster0.xwnup2l.mongodb.net/?retryWrites=true&w=majority")
+MONGO_URL = os.environ.get("MONGO_URL", "")
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "") 
-UPDATE_CHNL = os.environ.get("UPDATE_CHNL", "MUSICBOT_OWNER")
-OWNER_ID = os.environ.get("OWNER_ID", "6052880487")
-OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "L2R_KING0")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP", "BWF_MUSIC1")
-BOT_NAME = os.environ.get("BOT_NAME", "💌ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ💌")
-START_IMG1 = os.environ.get("START_IMG1", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG2 = os.environ.get("START_IMG2", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG3 = os.environ.get("START_IMG3", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG4 = os.environ.get("START_IMG4", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG5 = os.environ.get("START_IMG5", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG6 = os.environ.get("START_IMG6", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG7 = os.environ.get("START_IMG7", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG8 = os.environ.get("START_IMG8",  "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG9 = os.environ.get("START_IMG9", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-START_IMG10 = os.environ.get("START_IMG10", "https://telegra.ph/file/e576aa8308c49d945f433.jpg")
+UPDATE_CHNL = os.environ.get("UPDATE_CHNL", "Venomowners")
+OWNER_ID = os.environ.get("OWNER_ID", "6306738739")
+OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Venom_bolti_public")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP", "Venom_Chatz")
+BOT_NAME = os.environ.get("BOT_NAME", "")
+START_IMG1 = os.environ.get("START_IMG1", "https://te.legra.ph/file/a406783ab421e5c53ab13.jpg")
+START_IMG2 = os.environ.get("START_IMG2")
+START_IMG3 = os.environ.get("START_IMG3")
+START_IMG4 = os.environ.get("START_IMG4")
+START_IMG5 = os.environ.get("START_IMG5")
+START_IMG6 = os.environ.get("START_IMG6")
+START_IMG7 = os.environ.get("START_IMG7")
+START_IMG8 = os.environ.get("START_IMG8")
+START_IMG9 = os.environ.get("START_IMG9")
+START_IMG10 = os.environ.get("START_IMG10")
 STKR = os.environ.get("STKR", "CAACAgUAAxkBAAEQgbVkOO3r_5PYE0ON9mzwwKf32pBwXgACqQgAAnlEWVV0rARmhc_yUy8E")
 STKR1 = os.environ.get("STKR1", "CAACAgQAAxkBAALRi2NZXUgjZCT775L5Nr0XrLbQ6XIpAAK_EQACpvFxHq2xh5JRVJNrKgQ")
 STKR2 = os.environ.get("STKR2", "CAACAgQAAxkBAALRjGNZXUs6YPggISBdtg4nXaU0vjNzAALqCwACbCIRU61ZQKi3F88DKgQ")
@@ -80,7 +80,7 @@ PHOTO = [
 ]
 
 EMOJIOS = [ 
-      "𝐁ω͠ғ ᴄʜᴀᴛ 𝐁σт",
+      "💣",
       "💥",
       "🪄",
       "🧨",
@@ -104,20 +104,20 @@ STICKER = [
       STKR8,
 ]
 START = f"""
-**👻ʜᴇʏ ɪ ᴀᴍ🍒 [{BOT_NAME}]({START_IMG1})**
-**🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨**
+**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]({START_IMG1})**
+**➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ**
 **──────────────**
-**💬ᴜsᴀɢᴇ /chatbot [🔊ᴏɴ♦️ᴏғғ🔇]**
-<b>||๏ 🍧ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ❣️.||</b>
+**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**
+<b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ.||</b>
 """
 DEV_OP = [
     [
-        InlineKeyboardButton(text="👑 ʙωғ ᴏᴡɴᴇʀ 👑", url=f"t.me/{OWNER_USERNAME}"),
-        InlineKeyboardButton(text="💌 ʙω͠ғꜱᴜᴘᴘᴏʀᴛ 💌", url=f"https://t.me/{SUPPORT_GRP}"),
+        InlineKeyboardButton(text="🥀 ᴏᴡɴᴇʀ 🥀", url=f"t.me/{OWNER_USERNAME}"),
+        InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
     [
         InlineKeyboardButton(
-            text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
+            text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
@@ -132,13 +132,13 @@ DEV_OP = [
 PNG_BTN = [
     [
          InlineKeyboardButton(
-             text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
+             text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
              url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
          ),
      ],
      [
          InlineKeyboardButton(
-             text="💌 ʙω͠ғꜱᴜᴘᴘᴏʀᴛ 💌", 
+             text="✨ sᴜᴘᴘᴏʀᴛ ✨", 
              url=f"https://t.me/{SUPPORT_GRP}",
          ),
      ],
@@ -283,7 +283,7 @@ ABOUT_BTN = [
            InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="BACK"),
       ],
 ]
-SOURCE_READ = f"**🧸ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ🍃 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) 🕊ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ @L2R_KING0 💌.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ 🍷**\n**🌷──────────────────🌷**\n**♦️ʜᴇʀᴇ ɪs ᴛʜᴇ 💫 [🕊ʙωғ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ](https://github.com/BWFTIME/BWFCHATBOT)**\n**🍧──────────────────🍧**\n**🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨[sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
+SOURCE_READ = f"**ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ ✯**\n**──────────────────**\n**ʜᴇʀᴇ ɪs ᴛʜᴇ [sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ](https://github.com/venombolteop/ChatBot)**\n**──────────────────**\n**ɪғ ʏᴏᴜ ғᴀᴄᴇ ᴀɴʏ ᴘʀᴏʙʟᴇᴍ ᴛʜᴇɴ ᴄᴏɴᴛᴀᴄᴛ ᴀᴛ [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
 
 ABOUT_READ = f"""
 **➻ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛ-ʙᴏᴛ.**
@@ -300,11 +300,11 @@ async def restart(client, m: Message):
             text = random.choice(EMOJIOS),
         )
         await asyncio.sleep(1.3)
-        await accha.edit("__🦋ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ💨 ѕтαятιиg❣️..__")
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
         await asyncio.sleep(0.2)
-        await accha.edit("__🦋ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ💨 ѕтαятιиg❣️.....__")
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ sтαятιиg.....__")
         await asyncio.sleep(0.2)
-        await accha.edit("__🦋ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ💨 ѕтαятιиg❣️..__")
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
         await asyncio.sleep(0.2)
         await accha.delete()
         umm = await m.reply_sticker(sticker=random.choice(STICKER))
@@ -312,7 +312,7 @@ async def restart(client, m: Message):
         await umm.delete()
         await m.reply_photo(
             photo = random.choice(PHOTO),
-            caption=f"""**👻ʜᴇʏ ɪ ᴀᴍ🍒 [{BOT_NAME}](t.me/{BOT_USERNAME})**\n**➻🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨.**\n**──────────────**\n**💬ᴜsᴀɢᴇ /chatbot [🔊ᴏɴ♦️ᴏғғ🔇]**\n<b>||🍧ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ❣️||</b>""",
+            caption=f"""**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}](t.me/{BOT_USERNAME})**\n**➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**\n**──────────────**\n**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**\n<b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b>""",
             reply_markup=InlineKeyboardMarkup(DEV_OP),
         )
         await add_served_user(m.from_user.id)
@@ -436,7 +436,7 @@ async def restart(client, m: Message):
 async def get_st(_, msg: Message):
     users = len(await get_served_users())
     chats = len(await get_served_chats())
-    await msg.reply_photo(photo="https://telegra.ph/file/e79b248697fb20fcb94d7.jpg",
+    await msg.reply_photo(photo="https://telegra.ph/file/7493a1557d9f29e45bc77.jpg",
                           caption=f"""ᴛᴏᴛᴀʟ sᴛᴀᴛs ᴏғ {BOT_NAME}
           ➻ **ᴄʜᴀᴛs :** {chats}
           ➻ **ᴜsᴇʀs :** {users}"""
@@ -697,5 +697,5 @@ async def queenprivatesticker(client: Client, message: Message):
            if not Yo == "text":
                await message.reply_sticker(f"{hey}")
 
-print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ɴᴏᴡ ғᴜᴄᴋ ᴏғғ! ᴀɴᴅ ɢᴏ ᴛᴏ @BWF_MUSIC1 ʙɪᴛᴄʜ!!")      
+print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ɴᴏᴡ ғᴜᴄᴋ ᴏғғ! ᴀɴᴅ ɢᴏ ᴛᴏ @Venom_Chatz ʙɪᴛᴄʜ!!")      
 bot.run()
