@@ -135,12 +135,7 @@ async def restart(client, m: Message):
         await asyncio.sleep(0.5)
         await accha.edit("https://telegra.ph/file/e576aa8308c49d945f433.jpg")
         await asyncio.sleep(0.5)
-        await accha.edit("💨𝗠𝗘𝗥𝗔 𝗘𝗞 𝗖𝗛𝗛𝗢𝗧𝗔 𝗦𝗔 𝗚𝗥𝗢𝗨𝗣 𝗝𝗢𝗜𝗡 𝗞𝗥 𝗟𝗢 🌷°‌⁪༎꯭ࠫ𝆺𝅥•๋⸙‌ٖٖٖٖٖٖٜٖٖ 💌
-
- 🍷 https://t.me/BWF_MUSIC1 🍷
- 🍷 https://t.me/BWF_MUSIC1 🍷
-
-💨𝗣𝗟𝗦 𝗜𝗡𝗧𝗘𝗭𝗔𝗥 𝗞𝗔𝗥 𝗥𝗛𝗜 𝗛𝗨 🍒🥀✨")
+        await accha.edit("💨𝗚𝗥𝗢𝗨𝗣 𝗝𝗢𝗜𝗡 𝗞𝗥 𝗟𝗢 🌷°‌⁪༎꯭ࠫ𝆺𝅥•๋⸙‌ٖٖٖٖٖٖٜٖٖ 💌 🍷 https://t.me/BWF_MUSIC1 🍷💨𝗣𝗟𝗦 𝗜𝗡𝗧𝗘𝗭𝗔𝗥 𝗞𝗔𝗥 𝗥𝗛𝗜 𝗛𝗨 🍒🥀✨")
         await asyncio.sleep(0.5)
         await accha.delete()
         umm = await m.reply_sticker(
