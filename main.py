@@ -16,9 +16,9 @@ API_HASH = os.environ.get("API_HASH", None)
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
 MONGO_URL = os.environ.get("MONGO_URL", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME","") 
-UPDATE_CHNL = os.environ.get("UPDATE_CHNL","BRANDRD_BOT")
+UPDATE_CHNL = os.environ.get("UPDATE_CHNL","ALL_QUIZ_TAME")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","L2R_KING0")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP","BRANDED_WORLD")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP","BWF_MUSIC1")
 BOT_NAME = os.environ.get("BOT_NAME","CHATBOT")
 START_IMG = os.environ.get("START_IMG","")
 
@@ -40,13 +40,13 @@ START =f"""
 **๏ ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴜsᴇ /help**
 """
 SOURCE_TEXT = f"""
-**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]
-➻ ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.
+**👻ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]
+🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨.
 ──────────────────
-ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ**
+💌ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ🌷**
 """
-SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
-SOURCE = 'https://github.com/BWFTIME/BWFCHATBOT'
+SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('🌷sᴏᴜʀᴄᴇ🌷', callback_data='hurr')], [InlineKeyboardButton(" 🍒ꜱᴜᴘᴘᴏʀᴛ🍒 ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="🙊 ʙᴀᴄᴋ 💨 ", callback_data="HELP_BACK")]])
+SOURCE = 'https://t.me/ALL_QUIZ_TAME'
 x=["https://telegra.ph/file/e576aa8308c49d945f433.jpg","🌷 💌 🍷","✨","🪸","🎉","🎈","🎯"]
 g=choice(x)
 async def is_admins(chat_id: int):
