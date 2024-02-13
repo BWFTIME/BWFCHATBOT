@@ -47,7 +47,7 @@ SOURCE_TEXT = f"""
 """
 SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
 SOURCE = 'https://github.com/BWFTIME/BWFCHATBOT'
-x=["👰‍♀️","🦋ʙω‌ғ ᴄʜᴀᴛʙᴏᴛ💨 ѕтαятιиg❣️.......","✨","🪸","🎉","🎈","🎯"]
+x=["https://telegra.ph/file/e576aa8308c49d945f433.jpg","🌷 💌 🍷","✨","🪸","🎉","🎈","🎯"]
 g=choice(x)
 async def is_admins(chat_id: int):
     return [
@@ -181,14 +181,14 @@ async def ping(client, message: Message):
         t = "__ριиgιиg...__"
         txxt = await message.reply(t)
         await asyncio.sleep(0.25)
-        await txxt.edit_text("__ριиgιиg.....__")
+        await txxt.edit_text("💌 ριиgιиg.....💌 🍷")
         await asyncio.sleep(0.35)
         await txxt.delete()
         end = datetime.now()
         ms = (end-start).microseconds / 1000
         await message.reply_photo(
                              photo=START_IMG,
-                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [BRANDED KING](https://t.me/BRANDEDKING82)||**",
+                             caption=f"🦋ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** 🌷ɪꜱ ᴀʟɪᴠᴇ 🍷 ᴀɴᴅ 💌ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ🍒 \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [ASHISH](https://t.me/L2R_KING0)||**",
                              reply_markup=InlineKeyboardMarkup(PNG_BTN),
        )
 
