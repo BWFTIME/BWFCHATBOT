@@ -14,7 +14,7 @@ from pyrogram import enums
 API_ID = os.environ.get("API_ID", None)
 API_HASH = os.environ.get("API_HASH", None)
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
-MONGO_URL = os.environ.get("MONGO_URL", None")
+MONGO_URL = os.environ.get("MONGO_URL", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME","") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","ALL_QUIZ_TAME")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","L2R_KING0")
