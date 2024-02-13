@@ -13,8 +13,8 @@
             "description": "telegram bot username here without @",
             "required": false
         },
-        "OWNER_USERNAME": {
-            "description": "Owner Username without @",
+        "OWNER_ID": {
+            "description": "Owner id without ",
             "required": false
         },
         "BOT_NAME": {
