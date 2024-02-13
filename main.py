@@ -65,7 +65,7 @@ MAIN = [
     [
         InlineKeyboardButton(
             text="😍 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 😍",
-            url=f"https://t.me/{VenomX.username}?startgroup=true",
+            url=f"https://t.me/{username}?startgroup=true",
         ),
     ],
     [
@@ -81,7 +81,7 @@ PNG_BTN = [
     [
         InlineKeyboardButton(
             text="😍 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 😍",
-            url=f"https://t.me/{VenomX.username}?startgroup=true",
+            url=f"https://t.me/{username}?startgroup=true",
         ),
     ],
     [
@@ -160,7 +160,7 @@ HELP_START = [
 HELP_BUTN = [
     [
         InlineKeyboardButton(
-            text="🚀 ʜᴇʟᴘ 🚀", url=f"https://t.me/{VenomX.username}?start=help"
+            text="🚀 ʜᴇʟᴘ 🚀", url=f"https://t.me/{username}?start=help"
         ),
         InlineKeyboardButton(text="🐳 ᴄʟᴏsᴇ 🐳", callback_data="CLOSE"),
     ],
