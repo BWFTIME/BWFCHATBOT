@@ -31,45 +31,27 @@ BRANDEDCHAT = Client(
     api_id = API_ID,
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
-)
-MAIN =f"""
-**๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}**
-**➻ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**
-**──────────────────**
-**➻ ᴜsᴀɢᴇ /chatbot [on/off]**
-**๏ ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴜsᴇ /help**
+]
+START = f"""
+**๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]({START_IMG1})**
+**♦️ꭙ ɪ ᴀᴍ ʙwꜰ ᴄʜᴀᴛʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs 𓆪ꪾ🥀...**
+**──────────────**
+**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**
+<b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ.||</b>
 """
-SOURCE_TEXT = f"""
-**👻ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]
-🦋ʙω͠ғ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ💨.
-──────────────────
-💌ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ🌷**
-"""
-SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('🌷sᴏᴜʀᴄᴇ🌷', callback_data='hurr')], [InlineKeyboardButton(" 🍒ꜱᴜᴘᴘᴏʀᴛ🍒 ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="🙊 ʙᴀᴄᴋ 💨 ", callback_data="HELP_BACK")]])
-SOURCE = 'https://t.me/ALL_QUIZ_TAME'
-x=["https://telegra.ph/file/e576aa8308c49d945f433.jpg","🌷 💌 🍷","✨","🪸","🎉","🎈","🎯"]
-g=choice(x)
-async def is_admins(chat_id: int):
-    return [
-        member.user.id
-        async for member in BRANDEDCHAT.get_chat_members(
-            chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS
-        )
-    ]
-
-START = [
+DEV_OP = [
     [
-        InlineKeyboardButton(text="🥀 ᴏᴡɴᴇʀ 🥀", url=f"https://t.me/{OWNER_USERNAME}"),
-        InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
+        InlineKeyboardButton(text="👑 ᴏᴡɴᴇʀ 👑", url=f"t.me/{OWNER_USERNAME}"),
+        InlineKeyboardButton(text="💌 ꜱᴜᴘᴘᴏʀᴛ 💌", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
     [
         InlineKeyboardButton(
-            text="😍 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 😍",
+            text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
     [
-          InlineKeyboardButton(text="🚀 ʜᴇʟᴘ & ᴄᴍᴅs 🚀", callback_data="HELP"),
+        InlineKeyboardButton(text="🚀 ʜᴇʟᴘ & ᴄᴍᴅs 🚀", callback_data="HELP"),
     ],
     [
         InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ❄️", callback_data="SOURCE"),
@@ -79,17 +61,17 @@ START = [
 PNG_BTN = [
     [
          InlineKeyboardButton(
-             text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ",
+             text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
              url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
          ),
      ],
      [
-         InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", 
-                              url=f"https://t.me/{SUPPORT_GRP}",
+         InlineKeyboardButton(
+             text="💌 sᴜᴘᴘᴏʀᴛ 💌", 
+             url=f"https://t.me/{SUPPORT_GRP}",
          ),
      ],
 ]
-
 HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n||©️ @BRANDRD_BOT||"
 HELP_BACK = [
      
