@@ -32,7 +32,7 @@ BRANDEDCHAT = Client(
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
 )
-START =f"""
+MAIN =f"""
 **๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}**
 **➻ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**
 **──────────────────**
@@ -57,7 +57,7 @@ async def is_admins(chat_id: int):
         )
     ]
 
-MAIN = [
+START = [
     [
         InlineKeyboardButton(text="🥀 ᴏᴡɴᴇʀ 🥀", url=f"https://t.me/{OWNER_USERNAME}"),
         InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
