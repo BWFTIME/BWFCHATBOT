@@ -131,11 +131,11 @@ async def restart(client, m: Message):
         accha = await m.reply_text(
                         text = f"{g}")
         await asyncio.sleep(1)
-        await accha.edit("text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ" url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+        await accha.edit("..💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
         await asyncio.sleep(0.5)
-        await accha.edit("text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ" url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+        await accha.edit("text="...💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
         await asyncio.sleep(0.5)
-        await accha.edit("text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ" url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+        await accha.edit("text="....💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
         await asyncio.sleep(0.5)
         await accha.delete()
         umm = await m.reply_sticker(
