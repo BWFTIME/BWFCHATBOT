@@ -133,9 +133,9 @@ async def restart(client, m: Message):
         await asyncio.sleep(1)
         await accha.edit("..💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
         await asyncio.sleep(0.5)
-        await accha.edit("text="...💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
+        await accha.edit("...💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
         await asyncio.sleep(0.5)
-        await accha.edit("text="....💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
+        await accha.edit("....💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
         await asyncio.sleep(0.5)
         await accha.delete()
         umm = await m.reply_sticker(
