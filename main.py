@@ -46,7 +46,7 @@ SOURCE_TEXT = f"""
 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ**
 """
 SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
-SOURCE = 'https://github.com/BWFTIME/BWFCHATBOT'
+SOURCE = 'https://github.com/WCGKING/BRANDEDCHATBOT'
 x=["❤️","🎉","✨","🪸","🎉","🎈","🎯"]
 g=choice(x)
 async def is_admins(chat_id: int):
@@ -126,16 +126,16 @@ async def must_join_channel(bot: Client, msg: Message):
                 pass
     except ChatAdminRequired:
         print(f"Promote me as an admin in the UPDATE CHANNEL  : {UPDATE_CHNL} !")
-@BRANDEDCHAT.on_message(filters.command(["Ping",f"alive{BOT_USERNAME}"]))
+@BRANDEDCHAT.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
 async def restart(client, m: Message):
         accha = await m.reply_text(
                         text = f"{g}")
         await asyncio.sleep(1)
-        await accha.edit("")
+        await accha.edit("🦋𝗡𝗢𝗪 𝗖𝗢𝗠𝗘 𝗛𝗘𝗥𝗘 ❤️")
         await asyncio.sleep(0.5)
-        await accha.edit("...💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
+        await accha.edit("🦋𝗔𝗡𝗗 𝗠𝗔𝗞𝗘 𝗬𝗢𝗨𝗥 𝗚𝗜𝗥𝗟𝗙𝗥𝗜𝗡𝗗 ")
         await asyncio.sleep(0.5)
-        await accha.edit("....💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
+        await accha.edit(" 🥀💋 𝗜𝗙 𝗬𝗢 𝗛𝗔𝗩𝗘 𝗔 ❤️")
         await asyncio.sleep(0.5)
         await accha.delete()
         umm = await m.reply_sticker(
@@ -144,9 +144,9 @@ async def restart(client, m: Message):
         await asyncio.sleep(1)
         await umm.delete()
         await m.reply_photo(
-            photo = START_IMG,
-            caption=START,
-            reply_markup=InlineKeyboardMarkup(MAIN),
+                       photo=START_IMG,
+                       caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [BRANDED KING](https://t.me/BRANDEDKING82)||**",
+                       reply_markup=InlineKeyboardMarkup(START_BTN),
         )
 @BRANDEDCHAT.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
@@ -175,16 +175,16 @@ async def restart(client, message):
 async def source(bot, m):
     await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
 #  alive
-@BRANDEDCHAT.on_message(filters.command(["start","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
-async def start(client, message: Message):
+@BRANDEDCHAT.on_message(filters.command(["ping","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
+async def ping(client, message: Message):
         start = datetime.now()
         t = "__ριиgιиg...__"
         txxt = await message.reply(t)
         await asyncio.sleep(0.25)
         await txxt.edit_text("__ριиgιиg.....__")
         await asyncio.sleep(0.35)
-        await txxt.delete("__ριиgιиg.....__")
-        end = datetime.now("__ριиgιиg.....__")
+        await txxt.delete()
+        end = datetime.now()
         ms = (end-start).microseconds / 1000
         await message.reply_photo(
                              photo=START_IMG,
