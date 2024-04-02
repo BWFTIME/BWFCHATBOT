@@ -126,12 +126,12 @@ async def must_join_channel(bot: Client, msg: Message):
                 pass
     except ChatAdminRequired:
         print(f"Promote me as an admin in the UPDATE CHANNEL  : {UPDATE_CHNL} !")
-@BRANDEDCHAT.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
+@BRANDEDCHAT.on_message(filters.command(["Ping",f"alive{BOT_USERNAME}"]))
 async def restart(client, m: Message):
         accha = await m.reply_text(
                         text = f"{g}")
         await asyncio.sleep(1)
-        await accha.edit("..💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
+        await accha.edit("")
         await asyncio.sleep(0.5)
         await accha.edit("...💌 ʙω͠ғsᴜᴘᴘᴏʀᴛ 💌")
         await asyncio.sleep(0.5)
@@ -175,16 +175,16 @@ async def restart(client, message):
 async def source(bot, m):
     await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
 #  alive
-@BRANDEDCHAT.on_message(filters.command(["ping","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
-async def ping(client, message: Message):
+@BRANDEDCHAT.on_message(filters.command(["start","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
+async def start(client, message: Message):
         start = datetime.now()
         t = "__ριиgιиg...__"
         txxt = await message.reply(t)
         await asyncio.sleep(0.25)
         await txxt.edit_text("__ριиgιиg.....__")
         await asyncio.sleep(0.35)
-        await txxt.delete()
-        end = datetime.now()
+        await txxt.delete("__ριиgιиg.....__")
+        end = datetime.now("__ριиgιиg.....__")
         ms = (end-start).microseconds / 1000
         await message.reply_photo(
                              photo=START_IMG,
