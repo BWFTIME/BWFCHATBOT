@@ -1,3 +1,4 @@
+from pyrogram import Client, filters
 from pyrogram.types import *
 from pymongo import MongoClient
 from pyrogram.enums import ChatAction
@@ -16,69 +17,21 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 MONGO_URL = os.environ.get("MONGO_URL", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME","") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","BRANDRD_BOT")
-OWNER_USERNAME = os.environ.get("OWNER_USERNAME","L2RKING82")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP","L2R_WORLD")
+OWNER_USERNAME = os.environ.get("OWNER_USERNAME","BRANDEDKING82")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP","BRANDED_WORLD")
 BOT_NAME = os.environ.get("BOT_NAME","CHATBOT")
 START_IMG = os.environ.get("START_IMG","")
 
-bot = Client(
-    "QueenBot" ,
+STKR = os.environ.get("STKR")
+
+
+StartTime = time.time()
+BRANDEDCHAT = Client(
+    "chat-bot" ,
     api_id = API_ID,
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
 )
-
-mongo = MongoCli(MONGO_URL)
-db = mongo.Anonymous
-chatsdb = db.chatsdb
-usersdb = db.users
-
-async def is_admins(chat_id: int):
-    return [
-        member.user.id
-        async for member in bot.iter_chat_members(
-            chat_id, filter="administrators"
-        )
-    ]
-
-
-PHOTO = [
-    START_IMG1,
-    START_IMG2,
-    START_IMG3,
-    START_IMG4,
-    START_IMG5,
-    START_IMG6,
-    START_IMG7,
-    START_IMG8,
-    START_IMG9,
-    START_IMG10,
-]
-
-EMOJIOS = [ 
-      "💣",
-      "💥",
-      "🪄",
-      "🧨",
-      "⚡",
-      "🤡",
-      "👻",
-      "🎃",
-      "🎩",
-      "🕊",
-]
-      
-STICKER = [
-      STKR,
-      STKR1,
-      STKR2,
-      STKR3,
-      STKR4,
-      STKR5,
-      STKR6,
-      STKR7,
-      STKR8,
-]
 START = f"""
 **๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]({START_IMG1})**
 **♦️ꭙ ɪ ᴀᴍ ʙwꜰ ᴄʜᴀᴛʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs 𓆪ꪾ🥀...**
@@ -86,7 +39,7 @@ START = f"""
 **➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**
 <b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ.||</b>
 """
-DEV_OP = [
+MAIN = [
     [
         InlineKeyboardButton(text="👑 ᴏᴡɴᴇʀ 👑", url=f"t.me/{OWNER_USERNAME}"),
         InlineKeyboardButton(text="💌 ꜱᴜᴘᴘᴏʀᴛ 💌", url=f"https://t.me/{SUPPORT_GRP}"),
