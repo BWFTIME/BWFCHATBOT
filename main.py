@@ -1,5 +1,3 @@
-#Don't remove This Line From Here. @BWFXMUSIC | @BWFXMUSIC
-#Githfrom pyrogram import Client, filters
 from pyrogram.types import *
 from pymongo import MongoClient
 from pyrogram.enums import ChatAction
