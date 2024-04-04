@@ -33,7 +33,7 @@ BRANDEDCHAT = Client(
     bot_token = BOT_TOKEN
 )
 START = f"""
-**๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]({START_IMG1})**
+**๏ 💌ʜᴇʟʟᴏ👻 {BOT_NAME}**
 **♦️ꭙ ɪ ᴀᴍ ʙwꜰ ᴄʜᴀᴛʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs 𓆪ꪾ🥀...**
 **──────────────**
 **➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**
@@ -365,7 +365,7 @@ async def restart(client, m: Message):
 async def get_st(_, msg: Message):
     users = len(await get_served_users())
     chats = len(await get_served_chats())
-    await msg.reply_photo(photo="https://telegra.ph/file/7493a1557d9f29e45bc77.jpg",
+    await msg.reply_photo(photo="https://telegra.ph/file/e576aa8308c49d945f433.jpg",
                           caption=f"""ᴛᴏᴛᴀʟ sᴛᴀᴛs ᴏғ {BOT_NAME}
           ➻ **ᴄʜᴀᴛs :** {chats}
           ➻ **ᴜsᴇʀs :** {users}"""
@@ -422,9 +422,9 @@ async def queenai(client: Client, message: Message):
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       queendb = MongoClient(MONGO_URL)
-       queen = queendb["QueenDb"]["Queen"] 
-       is_queen = queen.find_one({"chat_id": message.chat.id})
+       BRANDEDDB = MongoClient(MONGO_URL)
+       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
+       is_BRANDED = BRANDED.find_one({"chat_id": message.chat.id})
        if not is_queen:
            await bot.send_chat_action(message.chat.id, "typing")
            K = []  
@@ -442,8 +442,8 @@ async def queenai(client: Client, message: Message):
                    await message.reply_text(f"{hey}")
    
    if message.reply_to_message:  
-       queendb = MongoClient(MONGO_URL)
-       queen = queendb["QueenDb"]["Queen"] 
+       BRANDEDDB = MongoClient(MONGO_URL)
+       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
        is_queen = queen.find_one({"chat_id": message.chat.id})    
        getme = await bot.get_me()
        bot_id = getme.id                             
@@ -488,9 +488,9 @@ async def queenstickerai(client: Client, message: Message):
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       queendb = MongoClient(MONGO_URL)
-       queen = queendb["QueenDb"]["Queen"] 
-       is_queen = queen.find_one({"chat_id": message.chat.id})
+       BRANDEDDB = MongoClient(MONGO_URL)
+       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
+       is_BRANDED = BRANDED.find_one({"chat_id": message.chat.id})
        if not is_queen:
            await bot.send_chat_action(message.chat.id, "typing")
            K = []  
@@ -508,9 +508,9 @@ async def queenstickerai(client: Client, message: Message):
                    await message.reply_sticker(f"{hey}")
    
    if message.reply_to_message:
-       queendb = MongoClient(MONGO_URL)
-       queen = queendb["QueenDb"]["Queen"] 
-       is_queen = queen.find_one({"chat_id": message.chat.id})
+       BRANDEDDB = MongoClient(MONGO_URL)
+       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
+       is_BRANDED = BRANDED.find_one({"chat_id": message.chat.id})
        getme = await bot.get_me()
        bot_id = getme.id
        if message.reply_to_message.from_user.id == bot_id: 
