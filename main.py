@@ -32,14 +32,14 @@ L2RCHAT = Client(
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
 )
-START =f"""
-**๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}**
-**➻ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**
-**──────────────────**
-**➻ ᴜsᴀɢᴇ /chatbot [on/off]**
-**๏ ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴜsᴇ /help**
+START = f"""
+**๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]({START_IMG1})**
+**♦️ꭙ ɪ ᴀᴍ ʙwꜰ ᴄʜᴀᴛʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs 𓆪ꪾ🥀...**
+**──────────────**
+**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**
+<b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ.||</b>
 """
-MAIN = [
+DEV_OP = [
     [
         InlineKeyboardButton(text="👑 ᴏᴡɴᴇʀ 👑", url=f"t.me/{OWNER_USERNAME}"),
         InlineKeyboardButton(text="💌 ꜱᴜᴘᴘᴏʀᴛ 💌", url=f"https://t.me/{SUPPORT_GRP}"),
