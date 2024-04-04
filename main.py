@@ -33,7 +33,7 @@ BRANDEDCHAT = Client(
     bot_token = BOT_TOKEN
 )
 START = f"""
-**๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]({START_IMG1})**
+**๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]**
 **♦️ꭙ ɪ ᴀᴍ ʙwꜰ ᴄʜᴀᴛʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs 𓆪ꪾ🥀...**
 **──────────────**
 **➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**
