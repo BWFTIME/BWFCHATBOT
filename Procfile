@@ -1,1 +1,1 @@
-Queen: python3 main.py
+BRANDEDCHAT: python3 main.py
