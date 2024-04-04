@@ -1,4 +1,5 @@
-from pyrogram import Client, filters
+#Don't remove This Line From Here. @BWFXMUSIC | @BWFXMUSIC
+#Githfrom pyrogram import Client, filters
 from pyrogram.types import *
 from pymongo import MongoClient
 from pyrogram.enums import ChatAction
@@ -22,16 +23,64 @@ SUPPORT_GRP = os.environ.get("SUPPORT_GRP","L2R_WORLD")
 BOT_NAME = os.environ.get("BOT_NAME","CHATBOT")
 START_IMG = os.environ.get("START_IMG","")
 
-STKR = os.environ.get("STKR")
-
-
-StartTime = time.time()
-L2RCHAT = Client(
-    "chat-bot" ,
+bot = Client(
+    "QueenBot" ,
     api_id = API_ID,
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
 )
+
+mongo = MongoCli(MONGO_URL)
+db = mongo.Anonymous
+chatsdb = db.chatsdb
+usersdb = db.users
+
+async def is_admins(chat_id: int):
+    return [
+        member.user.id
+        async for member in bot.iter_chat_members(
+            chat_id, filter="administrators"
+        )
+    ]
+
+
+PHOTO = [
+    START_IMG1,
+    START_IMG2,
+    START_IMG3,
+    START_IMG4,
+    START_IMG5,
+    START_IMG6,
+    START_IMG7,
+    START_IMG8,
+    START_IMG9,
+    START_IMG10,
+]
+
+EMOJIOS = [ 
+      "💣",
+      "💥",
+      "🪄",
+      "🧨",
+      "⚡",
+      "🤡",
+      "👻",
+      "🎃",
+      "🎩",
+      "🕊",
+]
+      
+STICKER = [
+      STKR,
+      STKR1,
+      STKR2,
+      STKR3,
+      STKR4,
+      STKR5,
+      STKR6,
+      STKR7,
+      STKR8,
+]
 START = f"""
 **๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]({START_IMG1})**
 **♦️ꭙ ɪ ᴀᴍ ʙwꜰ ᴄʜᴀᴛʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs 𓆪ꪾ🥀...**
@@ -72,214 +121,343 @@ PNG_BTN = [
          ),
      ],
 ]
-SOURCE_TEXT = f"""
-**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]
-➻ ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.
-──────────────────
-ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ**
+HELP_READ = f"""
+<u>**ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ {BOT_NAME}**</u>
+<u>**ᴀʀᴇ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ!**</u>
+**ᴀʟʟ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ:/**
+**──────────────**
+<b>||©️ @{OWNER_USERNAME}||</b>
 """
-SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
-SOURCE = 'https://github.com/BWFTIME/BWFCHATBOT'
-x=["❤️","🎉","✨","🪸","🎉","🎈","🎯"]
-g=choice(x)
-async def is_admins(chat_id: int):
-    return [
-        member.user.id
-        async for member in L2RCHAT.get_chat_members(
-            chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS
-        )
-    ]
-
-MAIN = [
-    [
-        InlineKeyboardButton(text="👑 ᴏᴡɴᴇʀ 👑", url=f"t.me/{OWNER_USERNAME}"),
-        InlineKeyboardButton(text="💌 ꜱᴜᴘᴘᴏʀᴛ 💌", url=f"https://t.me/{SUPPORT_GRP}"),
-    ],
-    [
-        InlineKeyboardButton(
-            text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-        ),
-    ],
-    [
-        InlineKeyboardButton(text="🚀 ʜᴇʟᴘ & ᴄᴍᴅs 🚀", callback_data="HELP"),
-    ],
-    [
-        InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ❄️", callback_data="SOURCE"),
-        InlineKeyboardButton(text="☁️ ᴀʙᴏᴜᴛ ☁️", callback_data="ABOUT"),
-    ],
+BACK = [
+     [
+           InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="BACK"),
+     ],
 ]
+HELP_BTN = [
+     [
+          InlineKeyboardButton(text="🐳 ᴄʜᴀᴛʙᴏᴛ 🐳", callback_data="CHATBOT_CMD"),
+          InlineKeyboardButton(text="🎄 ᴛᴏᴏʟs 🎄", callback_data="TOOLS_DATA"),
+     ],
+     [
+          InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="BACK"),
+          InlineKeyboardButton(text="❄️ ᴄʟᴏsᴇ ❄️", callback_data="CLOSE"),
+     ],
+]
+
+CLOSE_BTN = [
+      [
+           InlineKeyboardButton(text="❄️ ᴄʟᴏsᴇ ❄️", callback_data="CLOSE"),
+      ],
+]
+
+CHATBOT_ON = [
+        [
+            InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data=f"addchat"),
+            InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data=f"rmchat"),
+        ],
+]
+
 PNG_BTN = [
     [
          InlineKeyboardButton(
-             text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
+             text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
              url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
          ),
      ],
      [
-         InlineKeyboardButton(
-             text="💌 sᴜᴘᴘᴏʀᴛ 💌", 
-             url=f"https://t.me/{SUPPORT_GRP}",
+         InlineKeyboardButton(text="✨ ᴄʟᴏsᴇ ✨", 
+                              callback_data="CLOSE",
          ),
      ],
 ]
 
-HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n||©️ @BRANDRD_BOT||"
-HELP_BACK = [
-     
-    [
-           InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK"),
-    ]
-]
-@L2RCHAT.on_message(filters.incoming & filters.private, group=-1)
-async def must_join_channel(bot: Client, msg: Message):
-    if not UPDATE_CHNL:
+TOOLS_DATA_READ = f"""
+<u>**ᴛᴏᴏʟs ғᴏʀ {BOT_NAME} ᴀʀᴇ:**</u>
+**➻ ᴜsᴇ `/repo` ғᴏʀ ɢᴇᴛᴛɪɴɢ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ!**
+**──────────────**
+**➻ ᴜsᴇ `/ping` ғᴏʀ ᴄʜᴇᴄᴋɪɴɢ ᴛʜᴇ ᴘɪɴɢ ᴏғ {BOT_NAME}**
+**──────────────**
+<b>||©️ @{OWNER_USERNAME}||</b>
+"""
+
+async def is_served_user(user_id: int) -> bool:
+    user = await usersdb.find_one({"user_id": user_id})
+    if not user:
+        return False
+    return True
+
+async def get_served_users() -> list:
+    users_list = []
+    async for user in usersdb.find({"user_id": {"$gt": 0}}):
+        users_list.append(user)
+    return users_list
+
+async def add_served_user(user_id: int):
+    is_served = await is_served_user(user_id)
+    if is_served:
         return
-    try:
-        try:
-            await bot.get_chat_member(UPDATE_CHNL, msg.from_user.id)
-        except UserNotParticipant:
-            if UPDATE_CHNL.isalpha():
-                link = "https://t.me/" + UPDATE_CHNL
-            else:
-                chat_info = await bot.get_chat(UPDATE_CHNL)
-                link = chat_info.invite_link
-            try:
-                await msg.reply_photo(
-                    photo=START_IMG, caption=f"» ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ʏᴏᴜ'ᴠᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ [ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ]({link}) ʏᴇᴛ, ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴜsᴇ ᴍᴇ ᴛʜᴇɴ ᴊᴏɪɴ [ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ]({link}) ᴀɴᴅ sᴛᴀʀᴛ ᴍᴇ ᴀɢᴀɪɴ !",
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ", url=link),
-                            ]
-                        ]
-                    )
-                )
-                await msg.stop_propagation()
-            except ChatWriteForbidden:
-                pass
-    except ChatAdminRequired:
-        print(f"Promote me as an admin in the UPDATE CHANNEL  : {UPDATE_CHNL} !")
-@L2RCHAT.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
+    return await usersdb.insert_one({"user_id": user_id})
+
+async def get_served_chats() -> list:
+    chats = chatsdb.find({"chat_id": {"$lt": 0}})
+    if not chats:
+        return []
+    chats_list = []
+    for chat in await chats.to_list(length=1000000000):
+        chats_list.append(chat)
+    return chats_list
+
+async def is_served_chat(chat_id: int) -> bool:
+    chat = await chatsdb.find_one({"chat_id": chat_id})
+    if not chat:
+        return False
+    return True
+
+
+async def add_served_chat(chat_id: int):
+    is_served = await is_served_chat(chat_id)
+    if is_served:
+        return
+    return await chatsdb.insert_one({"chat_id": chat_id})
+
+CHATBOT_READ = f"""
+<u>**ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ {BOT_NAME}**</u>
+**➻ ᴜsᴇ `/chatbot` ᴛᴏ ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**
+**๏ ɴᴏᴛᴇ ➻ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅ ғᴏʀ ᴄʜᴀᴛʙᴏᴛ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**
+**───────────────**
+<b>||©️ @{OWNER_USERNAME}||</b>
+"""
+CHATBOT_BACK = [
+        [     
+              InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="CHATBOT_BACK"),
+              InlineKeyboardButton(text="❄️ ᴄʟᴏsᴇ ❄️", callback_data="CLOSE"),
+        ],
+]
+HELP_START = [
+     [
+            InlineKeyboardButton(text="🚀 ʜᴇʟᴘ 🚀", callback_data="HELP"),
+            InlineKeyboardButton(text="🐳 ᴄʟᴏsᴇ 🐳", callback_data="CLOSE"),
+     ],
+]
+
+HELP_BUTN = [
+     [
+           InlineKeyboardButton(text="🚀 ʜᴇʟᴘ 🚀", url=f"https://t.me/{BOT_USERNAME}?start=help"),
+           InlineKeyboardButton(text="🐳 ᴄʟᴏsᴇ 🐳", callback_data="CLOSE"),
+     ],
+]
+
+ABOUT_BTN = [
+      [
+           InlineKeyboardButton(text="🎄 sᴜᴘᴘᴏʀᴛ 🎄", url=f"https://t.me/{SUPPORT_GRP}"),  
+           InlineKeyboardButton(text="🚀 ʜᴇʟᴘ 🚀", callback_data="HELP"),
+      ],
+      [    
+           InlineKeyboardButton(text="🍾 ᴏᴡɴᴇʀ 🍾", url=f"https://t.me/{OWNER_USERNAME}"), 
+           InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ❄️", callback_data="SOURCE"),
+      ],
+      [ 
+           InlineKeyboardButton(text="🐳 ᴜᴘᴅᴀᴛᴇs 🐳", url=f"https://t.me/{UPDATE_CHNL}"),  
+           InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="BACK"),
+      ],
+]
+SOURCE_READ = f"**ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ ✯**\n**──────────────────**\n**ʜᴇʀᴇ ɪs ᴛʜᴇ [sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ](https://t.me/MUSICBOT_OWNER)**\n**──────────────────**\n**ɪғ ʏᴏᴜ ғᴀᴄᴇ ᴀɴʏ ᴘʀᴏʙʟᴇᴍ ᴛʜᴇɴ ᴄᴏɴᴛᴀᴄᴛ ᴀᴛ [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
+
+ABOUT_READ = f"""
+**➻ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛ-ʙᴏᴛ.**
+**➻ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ʀᴇᴘʟɪᴇs ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴛᴏ ᴀ ᴜsᴇʀ.**
+**➻ ʜᴇʟᴘs ʏᴏᴜ ɪɴ ᴀᴄᴛɪᴠᴀᴛɪɴɢ ʏᴏᴜʀ ɢʀᴏᴜᴘs.**
+**➻ ᴡʀɪᴛᴛᴇɴ ɪɴ [ᴘʏᴛʜᴏɴ](https://www.python.org) ᴡɪᴛʜ [ᴍᴏɴɢᴏ-ᴅʙ](https://www.mongodb.com) ᴀs ᴀ ᴅᴀᴛᴀʙᴀsᴇ**
+**──────────────**
+**➻ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛᴛɪɴɢ ʙᴀsɪᴄ ʜᴇʟᴩ ᴀɴᴅ ɪɴғᴏ ᴀʙᴏᴜᴛ [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
+"""
+@bot.on_message(filters.command(["start", "aistart", f"start@{BOT_USERNAME}"]))
 async def restart(client, m: Message):
+    if m.chat.type == "private":
         accha = await m.reply_text(
-                        text = f"{g}")
-        await asyncio.sleep(1)
-        await accha.edit("👻ʜᴇʏ ɪ ᴀᴍ🍒")
-        await asyncio.sleep(0.5)
-        await accha.edit("...🦋ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ💨")
-        await asyncio.sleep(0.5)
-        await accha.edit("https://telegra.ph/file/e576aa8308c49d945f433.jpg")
-        await asyncio.sleep(0.5)
-        await accha.delete()
-        umm = await m.reply_sticker(
-                  sticker = STKR,
+            text = random.choice(EMOJIOS),
         )
-        await asyncio.sleep(1)
+        await asyncio.sleep(1.3)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
+        await asyncio.sleep(0.2)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ sтαятιиg.....__")
+        await asyncio.sleep(0.2)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
+        await asyncio.sleep(0.2)
+        await accha.delete()
+        umm = await m.reply_sticker(sticker=random.choice(STICKER))
+        await asyncio.sleep(2)
         await umm.delete()
         await m.reply_photo(
-            photo = START_IMG,
-            caption=START,
-            reply_markup=InlineKeyboardMarkup(MAIN),
+            photo = random.choice(PHOTO),
+            caption=f"""**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}](t.me/{BOT_USERNAME})**\n**➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**\n**──────────────**\n**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**\n<b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b>""",
+            reply_markup=InlineKeyboardMarkup(DEV_OP),
         )
-@L2RCHAT.on_callback_query()
+        await add_served_user(m.from_user.id)
+    else:
+        await m.reply_photo(
+            photo=random.choice(PHOTO),
+            caption=START,
+            reply_markup=InlineKeyboardMarkup(HELP_START),
+        )
+        await add_served_chat(m.chat.id)
+
+@bot.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
+    queendb = MongoClient(MONGO_URL)
+    queen = queendb["QueenDb"]["Queen"]
     if query.data == "HELP":
-     await query.message.edit_text(
+        await query.message.edit_text(
                       text = HELP_READ,
-                      reply_markup = InlineKeyboardMarkup(HELP_BACK),
+                      reply_markup=InlineKeyboardMarkup(HELP_BTN),
+                      disable_web_page_preview=True,
      )
-    elif query.data == "HELP_BACK":
+    elif query.data == "CLOSE":
+            await query.message.delete()
+    elif query.data == "BACK":
             await query.message.edit(
                   text = START,
-                  reply_markup=InlineKeyboardMarkup(MAIN),
+                  reply_markup=InlineKeyboardMarkup(DEV_OP),
+     )
+    elif query.data == "SOURCE":
+            await query.message.edit(
+                   text = SOURCE_READ,
+                   reply_markup = InlineKeyboardMarkup(BACK),
+                   disable_web_page_preview = True,
+
+     )
+    elif query.data == "ABOUT":
+            await query.message.edit(
+                    text = ABOUT_READ,
+                    reply_markup = InlineKeyboardMarkup(ABOUT_BTN),
+                    disable_web_page_preview=True,
+     )
+    elif query.data == "ADMINS":
+            await query.message.edit(
+                    text = ADMIN_READ,
+                    reply_markup = InlineKeyboardMarkup(MUSIC_BACK_BTN), 
+     )
+    elif query.data== "TOOLS_DATA":
+            await query.message.edit(
+                    text= TOOLS_DATA_READ,
+                    reply_markup = InlineKeyboardMarkup(CHATBOT_BACK),
+     )
+    elif query.data == "BACK_HELP":
+            await query.message.edit(
+                    text = HELP_READ,
+                    reply_markup = InlineKeyboardMarkup(HELP_BTN),
+     )
+    elif query.data == "CHATBOT_CMD":
+            await query.message.edit(
+                    text = CHATBOT_READ,
+                    reply_markup = InlineKeyboardMarkup(CHATBOT_BACK), 
+     )
+    elif query.data == "CHATBOT_BACK":
+            await query.message.edit(
+                    text = HELP_READ,
+                    reply_markup = InlineKeyboardMarkup(HELP_BTN), 
+     )
+    elif query.data == "addchat":
+        if query.from_user.id not in (await is_admins(query.message.chat.id)):
+            return query.answer(
+                "You don't have permissions to do this baby.",
+                show_alert=True,
+            )
+        else:
+            is_queen = queen.find_one({"chat_id": query.message.chat.id})
+            if not is_queen:           
+                await query.edit_message_text(f"**ᴄʜᴀᴛ-ʙᴏᴛ ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ.**")
+            if is_queen:
+                queen.delete_one({"chat_id": query.message.chat.id})
+                await query.edit_message_text(f"**ᴄʜᴀᴛ-ʙᴏᴛ ᴇɴᴀʙʟᴇᴅ ʙʏ** {query.from_user.mention}.")
+    elif query.data == "rmchat":
+        if query.from_user.id not in (await is_admins(query.message.chat.id)):
+            return query.answer(
+                "**ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍs ᴛᴏ ᴅᴏ ᴛʜɪs ʙᴀʙʏ!**",
+                show_alert=True,
+            )
+        else:
+            is_queen = queen.find_one({"chat_id": query.message.chat.id})
+            if not is_queen:
+                queen.insert_one({"chat_id": query.message.chat.id})
+                await query.edit_message_text(f"**ᴄʜᴀᴛ-ʙᴏᴛ ᴅɪsᴀʙʟᴇᴅ ʙʏ** {query.from_user.mention}.")
+            if is_queen:
+                await query.edit_message_text("**ᴄʜᴀᴛ-ʙᴏᴛ ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ.**")
+                            
+@bot.on_message(filters.command("repo"))
+async def repo(client, message):
+    await message.reply_text(
+       text=SOURCE_READ,
+       reply_markup=InlineKeyboardMarkup(CLOSE_BTN),
+       disable_web_page_preview=True,
+    )
+
+@bot.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["+", ".", "/", "-", "?", "$"]))
+async def restart(client, m: Message):
+    if m.chat.type == "private":
+        hmm = await m.reply_photo(
+            photo=random.choice(PHOTO),
+            caption=HELP_READ,
+            reply_markup=InlineKeyboardMarkup(HELP_BTN),
         )
-    elif query.data == 'source':
-        await query.message.edit_text(SOURCE_TEXT, reply_markup=SOURCE_BUTTONS)
-    elif query.data == 'hurr':
-        await query.answer()
-        await query.message.edit_text(SOURCE)
-@L2RCHAT.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["","+", ".", "/", "-", "?", "$"]))
-async def restart(client, message):
-    hmm = await message.reply_photo(START_IMG,
-                             caption= HELP_READ,
-                        reply_markup= InlineKeyboardMarkup(HELP_BACK),
-       )
-@L2RCHAT.on_message(filters.command(['source', 'repo']))
-async def source(bot, m):
-    await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
-#  alive
-@L2RCHAT.on_message(filters.command(["ping","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
+        await add_served_user(m.from_user.id)
+    else:
+        await m.reply_photo(
+            photo=random.choice(PHOTO),
+            caption="**ʜᴇʏ, ᴘᴍ ᴍᴇ ғᴏʀ ʜᴇʟᴘ ᴄᴏᴍᴍᴀɴᴅs!**",
+            reply_markup=InlineKeyboardMarkup(HELP_BUTN),
+        )
+        await add_served_chat(m.chat.id)
+
+
+@bot.on_message(filters.command("stats"))
+async def get_st(_, msg: Message):
+    users = len(await get_served_users())
+    chats = len(await get_served_chats())
+    await msg.reply_photo(photo="https://telegra.ph/file/7493a1557d9f29e45bc77.jpg",
+                          caption=f"""ᴛᴏᴛᴀʟ sᴛᴀᴛs ᴏғ {BOT_NAME}
+          ➻ **ᴄʜᴀᴛs :** {chats}
+          ➻ **ᴜsᴇʀs :** {users}"""
+    )
+
+@bot.on_message(filters.command("ping", prefixes=["+", "/", "-", "?", "$", "&"]))
 async def ping(client, message: Message):
-        start = datetime.now()
-        t = "__ριиgιиg...__"
-        txxt = await message.reply(t)
-        await asyncio.sleep(0.25)
-        await txxt.edit_text("__ριиgιиg.....__")
-        await asyncio.sleep(0.35)
-        await txxt.delete()
-        end = datetime.now()
-        ms = (end-start).microseconds / 1000
-        await message.reply_photo(
-                             photo=START_IMG,
-                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [L2R KING](https://t.me/L2RKING82)||**",
-                             reply_markup=InlineKeyboardMarkup(PNG_BTN),
-       )
+    if message.chat.type == "private":
+        await add_served_user(message.from_user.id)
+    else:
+        await add_served_chat(message.chat.id)
+    await message.delete()
+    start = datetime.now()
+    wtfbhemchomd = await message.reply_sticker(sticker= random.choice(STICKER))
+    ms = (datetime.now()-start).microseconds / 1000
+    await message.reply_photo(
+        photo=random.choice(PHOTO),
+        caption=f"нey вαву!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ιѕ alιve 🥀 αnd worĸιng ғιne wιтн a pιng oғ\n➥ `{ms}` ms\n\n<b>||мαdє ωιтн ❣️ ву [Developer](https://t.me/{OWNER_USERNAME})||</b>",
+        reply_markup=InlineKeyboardMarkup(PNG_BTN),
+    )
 
-@L2RCHAT.on_message(
-    filters.command(["chatbot off", f"chatbot@{BOT_USERNAME} off"], prefixes=["/", ".", "?", "-"])
+                  
+@bot.on_message(
+    filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"])
     & ~filters.private)
-async def chatbotofd(client, message):
-    vickdb = MongoClient(MONGO_URL)    
-    vick = vickdb["VickDb"]["Vick"]     
-    if message.from_user:
+async def chatonoff(client: Client, message: Message):
+    if not message.from_user:
+        return
+    else:
         user = message.from_user.id
         chat_id = message.chat.id
-        if user not in (
-           await is_admins(chat_id)
-        ):
-           return await message.reply_text(
-                "You are not admin"
-            )
-    is_vick = vick.find_one({"chat_id": message.chat.id})
-    if not is_vick:
-        vick.insert_one({"chat_id": message.chat.id})
-        await message.reply_text(f"Chatbot Disabled!")
-    if is_vick:
-        await message.reply_text(f"ChatBot Already Disabled")
-    
-
-@L2RCHAT.on_message(
-    filters.command(["chatbot on", f"chatbot@{BOT_USERNAME} on"] ,prefixes=["/", ".", "?", "-"])
-    & ~filters.private)
-async def chatboton(client, message):
-    vickdb = MongoClient(MONGO_URL)    
-    vick = vickdb["VickDb"]["Vick"]     
-    if message.from_user:
-        user = message.from_user.id
-        chat_id = message.chat.id
-        if user not in (
-            await is_admins(chat_id)
-        ):
+        if user not in (await is_admins(chat_id)):
             return await message.reply_text(
-                "You are not admin"
+                "**ʏᴏᴜ ᴀʀᴇ'ɴᴛ ᴀɴ ᴀᴅᴍɪɴ.**"
             )
-    is_vick = vick.find_one({"chat_id": message.chat.id})
-    if not is_vick:           
-        await message.reply_text(f"Chatbot Already Enabled")
-    if is_vick:
-        vick.delete_one({"chat_id": message.chat.id})
-        await message.reply_text(f"ChatBot Enabled!")
-    
-
-@L2RCHAT.on_message(
-    filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"], prefixes=["/", ".", "?", "-"])
-    & ~filters.private)
-async def chatbot(client, message):
-    await message.reply_text(f"**ᴜsᴀɢᴇ:**\n/**chatbot [on/off]**\n**ᴄʜᴀᴛ-ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅ(s) ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!**")
+        else:
+            await message.reply_text(
+            text="» <u>**ᴄʜᴏᴏsᴇ ᴀɴ ᴏᴩᴛɪᴏɴ ᴛᴏ ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**</u>",
+            reply_markup=InlineKeyboardMarkup(CHATBOT_ON),
+        )
 
 
-@L2RCHAT.on_message(
+@bot.on_message(
  (
         filters.text
         | filters.sticker
@@ -287,17 +465,17 @@ async def chatbot(client, message):
     & ~filters.private
     & ~filters.bot,
 )
-async def vickai(client: Client, message: Message):
+async def queenai(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})
-       if not is_vick:
-           await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+       queendb = MongoClient(MONGO_URL)
+       queen = queendb["QueenDb"]["Queen"] 
+       is_queen = queen.find_one({"chat_id": message.chat.id})
+       if not is_queen:
+           await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.text})  
            k = chatai.find_one({"word": message.text})      
@@ -313,14 +491,14 @@ async def vickai(client: Client, message: Message):
                    await message.reply_text(f"{hey}")
    
    if message.reply_to_message:  
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})    
-       getme = await L2RCHAT.get_me()
+       queendb = MongoClient(MONGO_URL)
+       queen = queendb["QueenDb"]["Queen"] 
+       is_queen = queen.find_one({"chat_id": message.chat.id})    
+       getme = await bot.get_me()
        bot_id = getme.id                             
        if message.reply_to_message.from_user.id == bot_id: 
-           if not is_vick:                   
-               await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+           if not is_queen:                   
+               await bot.send_chat_action(message.chat.id, "typing")
                K = []  
                is_chat = chatai.find({"word": message.text})
                k = chatai.find_one({"word": message.text})      
@@ -345,7 +523,7 @@ async def vickai(client: Client, message: Message):
                    chatai.insert_one({"word": message.reply_to_message.text, "text": message.text, "check": "none"})    
                
 
-@L2RCHAT.on_message(
+@bot.on_message(
  (
         filters.sticker
         | filters.text
@@ -353,17 +531,17 @@ async def vickai(client: Client, message: Message):
     & ~filters.private
     & ~filters.bot,
 )
-async def vickstickerai(client: Client, message: Message):
+async def queenstickerai(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})
-       if not is_vick:
-           await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+       queendb = MongoClient(MONGO_URL)
+       queen = queendb["QueenDb"]["Queen"] 
+       is_queen = queen.find_one({"chat_id": message.chat.id})
+       if not is_queen:
+           await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})      
            k = chatai.find_one({"word": message.text})      
@@ -379,14 +557,14 @@ async def vickstickerai(client: Client, message: Message):
                    await message.reply_sticker(f"{hey}")
    
    if message.reply_to_message:
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})
-       getme = await L2RCHAT.get_me()
+       queendb = MongoClient(MONGO_URL)
+       queen = queendb["QueenDb"]["Queen"] 
+       is_queen = queen.find_one({"chat_id": message.chat.id})
+       getme = await bot.get_me()
        bot_id = getme.id
        if message.reply_to_message.from_user.id == bot_id: 
-           if not is_vick:                    
-               await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+           if not is_queen:                    
+               await bot.send_chat_action(message.chat.id, "typing")
                K = []  
                is_chat = chatai.find({"word": message.text})
                k = chatai.find_one({"word": message.text})      
@@ -412,7 +590,7 @@ async def vickstickerai(client: Client, message: Message):
                
 
 
-@L2RCHAT.on_message(
+@bot.on_message(
     (
         filters.text
         | filters.sticker
@@ -420,12 +598,12 @@ async def vickstickerai(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def vickprivate(client: Client, message: Message):
+async def queenprivate(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]
    if not message.reply_to_message: 
-       await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+       await bot.send_chat_action(message.chat.id, "typing")
        K = []  
        is_chat = chatai.find({"word": message.text})                 
        for x in is_chat:
@@ -438,10 +616,10 @@ async def vickprivate(client: Client, message: Message):
        if not Yo == "sticker":
            await message.reply_text(f"{hey}")
    if message.reply_to_message:            
-       getme = await L2RCHAT.get_me()
+       getme = await bot.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
-           await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+           await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.text})                 
            for x in is_chat:
@@ -455,7 +633,7 @@ async def vickprivate(client: Client, message: Message):
                await message.reply_text(f"{hey}")
        
 
-@L2RCHAT.on_message(
+@bot.on_message(
  (
         filters.sticker
         | filters.text
@@ -463,12 +641,12 @@ async def vickprivate(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def vickprivatesticker(client: Client, message: Message):
+async def queenprivatesticker(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"] 
    if not message.reply_to_message:
-       await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+       await bot.send_chat_action(message.chat.id, "typing")
        K = []  
        is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
        for x in is_chat:
@@ -481,10 +659,10 @@ async def vickprivatesticker(client: Client, message: Message):
        if not Yo == "text":
            await message.reply_sticker(f"{hey}")
    if message.reply_to_message:            
-       getme = await L2RCHAT.get_me()
+       getme = await bot.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
-           await L2RCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
+           await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
            for x in is_chat:
@@ -497,5 +675,5 @@ async def vickprivatesticker(client: Client, message: Message):
            if not Yo == "text":
                await message.reply_sticker(f"{hey}")
 
-print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ!")      
-L2RCHAT.run()
+print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ɴᴏᴡ ғᴜᴄᴋ ᴏғғ! ᴀɴᴅ ɢᴏ ᴛᴏ @Venom_Chatting ʙɪᴛᴄʜ!!")      
+bot.run()
