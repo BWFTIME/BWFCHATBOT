@@ -131,11 +131,11 @@ async def restart(client, m: Message):
         accha = await m.reply_text(
                         text = f"{g}")
         await asyncio.sleep(1)
-        await accha.edit("🦋𝗡𝗢𝗪 𝗖𝗢𝗠𝗘 𝗛𝗘𝗥𝗘 ❤️")
+        await accha.edit("🦋𝗡𝗢𝗪 𝗖𝗢𝗠𝗘 𝗛𝗘𝗥𝗘❤️")
         await asyncio.sleep(0.5)
-        await accha.edit("🦋𝗔𝗡𝗗 𝗠𝗔𝗞𝗘 𝗬𝗢𝗨𝗥 𝗚𝗜𝗥𝗟𝗙𝗥𝗜𝗡𝗗 ")
+        await accha.edit("🥀💋 𝗜𝗙 𝗬𝗢 𝗛𝗔𝗩𝗘 𝗔 𝗚𝗜𝗥𝗟𝗙𝗜𝗘𝗡𝗗❤️")
         await asyncio.sleep(0.5)
-        await accha.edit(" 🥀💋 𝗜𝗙 𝗬𝗢 𝗛𝗔𝗩𝗘 𝗔 ❤️")
+        await accha.edit("😘 𝗧𝗛𝗘𝗡 𝗬𝗢𝗨 𝗪𝗜𝗟𝗟 𝗚𝗜𝗙𝗧🙊❤️")
         await asyncio.sleep(0.5)
         await accha.delete()
         umm = await m.reply_sticker(
@@ -144,9 +144,9 @@ async def restart(client, m: Message):
         await asyncio.sleep(1)
         await umm.delete()
         await m.reply_photo(
-                       photo=START_IMG,
-                       caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [BRANDED KING](https://t.me/BRANDEDKING82)||**",
-                       reply_markup=InlineKeyboardMarkup(START_BTN),
+            photo = START_IMG,
+            caption=START,
+            reply_markup=InlineKeyboardMarkup(MAIN),
         )
 @BRANDEDCHAT.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
@@ -171,7 +171,7 @@ async def restart(client, message):
                              caption= HELP_READ,
                         reply_markup= InlineKeyboardMarkup(HELP_BACK),
        )
-@BRANDEDCHAT.on_message(filters.command(['source', 'Start]))
+@BRANDEDCHAT.on_message(filters.command(['source', 'repo']))
 async def source(bot, m):
     await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
 #  alive
