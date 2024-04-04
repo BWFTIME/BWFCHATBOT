@@ -33,7 +33,7 @@ BRANDEDCHAT = Client(
     bot_token = BOT_TOKEN
 )
 START = f"""
-**๏ 💌ʜᴇʟʟᴏ👻 {BOT_NAME}**
+**๏ 💌ʜᴇʟʟᴏ👻 [{BOT_NAME}]({START_IMG1})**
 **♦️ꭙ ɪ ᴀᴍ ʙwꜰ ᴄʜᴀᴛʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs 𓆪ꪾ🥀...**
 **──────────────**
 **➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**
@@ -212,203 +212,155 @@ ABOUT_BTN = [
            InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="BACK"),
       ],
 ]
-SOURCE_READ = f"**ʜᴇʏ, ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ.**\n**ᴘʟᴇᴀsᴇ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ & ɢɪᴠᴇ ᴛʜᴇ sᴛᴀʀ ✯**\n**──────────────────**\n**ʜᴇʀᴇ ɪs ᴛʜᴇ [sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ](https://t.me/MUSICBOT_OWNER)**\n**──────────────────**\n**ɪғ ʏᴏᴜ ғᴀᴄᴇ ᴀɴʏ ᴘʀᴏʙʟᴇᴍ ᴛʜᴇɴ ᴄᴏɴᴛᴀᴄᴛ ᴀᴛ [sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/{SUPPORT_GRP}).\n<b>||©️ @{OWNER_USERNAME}||</b>"
-
-ABOUT_READ = f"""
-**➻ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ɪs ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛ-ʙᴏᴛ.**
-**➻ [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ʀᴇᴘʟɪᴇs ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴛᴏ ᴀ ᴜsᴇʀ.**
-**➻ ʜᴇʟᴘs ʏᴏᴜ ɪɴ ᴀᴄᴛɪᴠᴀᴛɪɴɢ ʏᴏᴜʀ ɢʀᴏᴜᴘs.**
-**➻ ᴡʀɪᴛᴛᴇɴ ɪɴ [ᴘʏᴛʜᴏɴ](https://www.python.org) ᴡɪᴛʜ [ᴍᴏɴɢᴏ-ᴅʙ](https://www.mongodb.com) ᴀs ᴀ ᴅᴀᴛᴀʙᴀsᴇ**
-**──────────────**
-**➻ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛᴛɪɴɢ ʙᴀsɪᴄ ʜᴇʟᴩ ᴀɴᴅ ɪɴғᴏ ᴀʙᴏᴜᴛ [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
-"""
-@bot.on_message(filters.command(["start", "aistart", f"start@{BOT_USERNAME}"]))
+@BRANDEDCHAT.on_message(filters.incoming & filters.private, group=-1)
+async def must_join_channel(bot: Client, msg: Message):
+    if not UPDATE_CHNL:
+        return
+    try:
+        try:
+            await bot.get_chat_member(UPDATE_CHNL, msg.from_user.id)
+        except UserNotParticipant:
+            if UPDATE_CHNL.isalpha():
+                link = "https://t.me/" + UPDATE_CHNL
+            else:
+                chat_info = await bot.get_chat(UPDATE_CHNL)
+                link = chat_info.invite_link
+            try:
+                await msg.reply_photo(
+                    photo=START_IMG, caption=f"» ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ʏᴏᴜ'ᴠᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ [ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ]({link}) ʏᴇᴛ, ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴜsᴇ ᴍᴇ ᴛʜᴇɴ ᴊᴏɪɴ [ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ]({link}) ᴀɴᴅ sᴛᴀʀᴛ ᴍᴇ ᴀɢᴀɪɴ !",
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ", url=link),
+                            ]
+                        ]
+                    )
+                )
+                await msg.stop_propagation()
+            except ChatWriteForbidden:
+                pass
+    except ChatAdminRequired:
+        print(f"Promote me as an admin in the UPDATE CHANNEL  : {UPDATE_CHNL} !")
+@BRANDEDCHAT.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
 async def restart(client, m: Message):
-    if m.chat.type == "private":
         accha = await m.reply_text(
-            text = random.choice(EMOJIOS),
-        )
-        await asyncio.sleep(1.3)
-        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
-        await asyncio.sleep(0.2)
-        await accha.edit("__ᴅιиg ᴅσиg ꨄ sтαятιиg.....__")
-        await asyncio.sleep(0.2)
-        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
-        await asyncio.sleep(0.2)
+                        text = f"{g}")
+        await asyncio.sleep(1)
+        await accha.edit("🦋𝗡𝗢𝗪 𝗚𝗜𝗥𝗟𝗙𝗥𝗜𝗡𝗗 🥀💋 𝗜𝗙 𝗬𝗢 𝗛𝗔𝗩𝗘 𝗔 𝗚𝗜𝗥𝗟𝗙𝗜𝗘𝗡𝗗  😘 𝗧𝗛𝗘𝗡 𝗬𝗢𝗨 𝗪𝗜𝗟𝗟 𝗚𝗜𝗙𝗧 🙊 𝗧𝗢 𝗠𝗬 𝗢𝗪𝗡𝗘𝗥 @BRANDEDKING82 ❤️")
+        await asyncio.sleep(0.5)
+        await accha.edit("🦋𝗡𝗢𝗪 𝗖𝗢𝗠𝗘 𝗛𝗘𝗥𝗘  🥀💋 𝗜𝗙 𝗬𝗢 𝗛𝗔𝗩𝗘 𝗔 𝗚𝗜𝗥𝗟𝗙𝗜𝗘𝗡𝗗  😘 𝗧𝗛𝗘𝗡 𝗬𝗢𝗨 𝗪𝗜𝗟𝗟 𝗚𝗜𝗙𝗧 🙊 𝗧𝗢 𝗠𝗬 𝗢𝗪𝗡𝗘𝗥 @BRANDEDKING82 ❤️")
+        await asyncio.sleep(0.5)
+        await accha.edit("𝗔𝗡𝗗 𝗠𝗔𝗞𝗘 𝗬𝗢𝗨𝗥 𝗚𝗜𝗥𝗟𝗙𝗥𝗜𝗡𝗗 🥀💋 𝗜𝗙 𝗬𝗢 𝗛𝗔𝗩𝗘 𝗔 𝗚𝗜𝗥𝗟𝗙𝗜𝗘𝗡𝗗  😘 𝗧𝗛𝗘𝗡 𝗬𝗢𝗨 𝗪𝗜𝗟𝗟 𝗚𝗜𝗙𝗧 🙊 𝗧𝗢 𝗠𝗬 𝗢𝗪𝗡𝗘𝗥 @BRANDEDKING82 ❤️")
+        await asyncio.sleep(0.5)
         await accha.delete()
-        umm = await m.reply_sticker(sticker=random.choice(STICKER))
-        await asyncio.sleep(2)
+        umm = await m.reply_sticker(
+                  sticker = STKR,
+        )
+        await asyncio.sleep(1)
         await umm.delete()
         await m.reply_photo(
-            photo = random.choice(PHOTO),
-            caption=f"""**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}](t.me/{BOT_USERNAME})**\n**➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**\n**──────────────**\n**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**\n<b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b>""",
-            reply_markup=InlineKeyboardMarkup(DEV_OP),
-        )
-        await add_served_user(m.from_user.id)
-    else:
-        await m.reply_photo(
-            photo=random.choice(PHOTO),
+            photo = START_IMG,
             caption=START,
-            reply_markup=InlineKeyboardMarkup(HELP_START),
+            reply_markup=InlineKeyboardMarkup(MAIN),
         )
-        await add_served_chat(m.chat.id)
-
-@bot.on_callback_query()
+@BRANDEDCHAT.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
-    queendb = MongoClient(MONGO_URL)
-    queen = queendb["QueenDb"]["Queen"]
     if query.data == "HELP":
-        await query.message.edit_text(
+     await query.message.edit_text(
                       text = HELP_READ,
-                      reply_markup=InlineKeyboardMarkup(HELP_BTN),
-                      disable_web_page_preview=True,
+                      reply_markup = InlineKeyboardMarkup(HELP_BACK),
      )
-    elif query.data == "CLOSE":
-            await query.message.delete()
-    elif query.data == "BACK":
+    elif query.data == "HELP_BACK":
             await query.message.edit(
                   text = START,
-                  reply_markup=InlineKeyboardMarkup(DEV_OP),
-     )
-    elif query.data == "SOURCE":
-            await query.message.edit(
-                   text = SOURCE_READ,
-                   reply_markup = InlineKeyboardMarkup(BACK),
-                   disable_web_page_preview = True,
-
-     )
-    elif query.data == "ABOUT":
-            await query.message.edit(
-                    text = ABOUT_READ,
-                    reply_markup = InlineKeyboardMarkup(ABOUT_BTN),
-                    disable_web_page_preview=True,
-     )
-    elif query.data == "ADMINS":
-            await query.message.edit(
-                    text = ADMIN_READ,
-                    reply_markup = InlineKeyboardMarkup(MUSIC_BACK_BTN), 
-     )
-    elif query.data== "TOOLS_DATA":
-            await query.message.edit(
-                    text= TOOLS_DATA_READ,
-                    reply_markup = InlineKeyboardMarkup(CHATBOT_BACK),
-     )
-    elif query.data == "BACK_HELP":
-            await query.message.edit(
-                    text = HELP_READ,
-                    reply_markup = InlineKeyboardMarkup(HELP_BTN),
-     )
-    elif query.data == "CHATBOT_CMD":
-            await query.message.edit(
-                    text = CHATBOT_READ,
-                    reply_markup = InlineKeyboardMarkup(CHATBOT_BACK), 
-     )
-    elif query.data == "CHATBOT_BACK":
-            await query.message.edit(
-                    text = HELP_READ,
-                    reply_markup = InlineKeyboardMarkup(HELP_BTN), 
-     )
-    elif query.data == "addchat":
-        if query.from_user.id not in (await is_admins(query.message.chat.id)):
-            return query.answer(
-                "You don't have permissions to do this baby.",
-                show_alert=True,
-            )
-        else:
-            is_queen = queen.find_one({"chat_id": query.message.chat.id})
-            if not is_queen:           
-                await query.edit_message_text(f"**ᴄʜᴀᴛ-ʙᴏᴛ ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ.**")
-            if is_queen:
-                queen.delete_one({"chat_id": query.message.chat.id})
-                await query.edit_message_text(f"**ᴄʜᴀᴛ-ʙᴏᴛ ᴇɴᴀʙʟᴇᴅ ʙʏ** {query.from_user.mention}.")
-    elif query.data == "rmchat":
-        if query.from_user.id not in (await is_admins(query.message.chat.id)):
-            return query.answer(
-                "**ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍs ᴛᴏ ᴅᴏ ᴛʜɪs ʙᴀʙʏ!**",
-                show_alert=True,
-            )
-        else:
-            is_queen = queen.find_one({"chat_id": query.message.chat.id})
-            if not is_queen:
-                queen.insert_one({"chat_id": query.message.chat.id})
-                await query.edit_message_text(f"**ᴄʜᴀᴛ-ʙᴏᴛ ᴅɪsᴀʙʟᴇᴅ ʙʏ** {query.from_user.mention}.")
-            if is_queen:
-                await query.edit_message_text("**ᴄʜᴀᴛ-ʙᴏᴛ ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ.**")
-                            
-@bot.on_message(filters.command("repo"))
-async def repo(client, message):
-    await message.reply_text(
-       text=SOURCE_READ,
-       reply_markup=InlineKeyboardMarkup(CLOSE_BTN),
-       disable_web_page_preview=True,
-    )
-
-@bot.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["+", ".", "/", "-", "?", "$"]))
-async def restart(client, m: Message):
-    if m.chat.type == "private":
-        hmm = await m.reply_photo(
-            photo=random.choice(PHOTO),
-            caption=HELP_READ,
-            reply_markup=InlineKeyboardMarkup(HELP_BTN),
+                  reply_markup=InlineKeyboardMarkup(MAIN),
         )
-        await add_served_user(m.from_user.id)
-    else:
-        await m.reply_photo(
-            photo=random.choice(PHOTO),
-            caption="**ʜᴇʏ, ᴘᴍ ᴍᴇ ғᴏʀ ʜᴇʟᴘ ᴄᴏᴍᴍᴀɴᴅs!**",
-            reply_markup=InlineKeyboardMarkup(HELP_BUTN),
-        )
-        await add_served_chat(m.chat.id)
-
-
-@bot.on_message(filters.command("stats"))
-async def get_st(_, msg: Message):
-    users = len(await get_served_users())
-    chats = len(await get_served_chats())
-    await msg.reply_photo(photo="https://telegra.ph/file/e576aa8308c49d945f433.jpg",
-                          caption=f"""ᴛᴏᴛᴀʟ sᴛᴀᴛs ᴏғ {BOT_NAME}
-          ➻ **ᴄʜᴀᴛs :** {chats}
-          ➻ **ᴜsᴇʀs :** {users}"""
-    )
-
-@bot.on_message(filters.command("ping", prefixes=["+", "/", "-", "?", "$", "&"]))
+    elif query.data == 'source':
+        await query.message.edit_text(SOURCE_TEXT, reply_markup=SOURCE_BUTTONS)
+    elif query.data == 'hurr':
+        await query.answer()
+        await query.message.edit_text(SOURCE)
+@BRANDEDCHAT.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["","+", ".", "/", "-", "?", "$"]))
+async def restart(client, message):
+    hmm = await message.reply_photo(START_IMG,
+                             caption= HELP_READ,
+                        reply_markup= InlineKeyboardMarkup(HELP_BACK),
+       )
+@BRANDEDCHAT.on_message(filters.command(['source', 'repo']))
+async def source(bot, m):
+    await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
+#  alive
+@BRANDEDCHAT.on_message(filters.command(["ping","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
 async def ping(client, message: Message):
-    if message.chat.type == "private":
-        await add_served_user(message.from_user.id)
-    else:
-        await add_served_chat(message.chat.id)
-    await message.delete()
-    start = datetime.now()
-    wtfbhemchomd = await message.reply_sticker(sticker= random.choice(STICKER))
-    ms = (datetime.now()-start).microseconds / 1000
-    await message.reply_photo(
-        photo=random.choice(PHOTO),
-        caption=f"нey вαву!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ιѕ alιve 🥀 αnd worĸιng ғιne wιтн a pιng oғ\n➥ `{ms}` ms\n\n<b>||мαdє ωιтн ❣️ ву [Developer](https://t.me/{OWNER_USERNAME})||</b>",
-        reply_markup=InlineKeyboardMarkup(PNG_BTN),
-    )
+        start = datetime.now()
+        t = "__ριиgιиg...__"
+        txxt = await message.reply(t)
+        await asyncio.sleep(0.25)
+        await txxt.edit_text("__ριиgιиg.....__")
+        await asyncio.sleep(0.35)
+        await txxt.delete()
+        end = datetime.now()
+        ms = (end-start).microseconds / 1000
+        await message.reply_photo(
+                             photo=START_IMG,
+                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [BRANDED KING](https://t.me/BRANDEDKING82)||**",
+                             reply_markup=InlineKeyboardMarkup(PNG_BTN),
+       )
 
-                  
-@bot.on_message(
-    filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"])
+@BRANDEDCHAT.on_message(
+    filters.command(["chatbot off", f"chatbot@{BOT_USERNAME} off"], prefixes=["/", ".", "?", "-"])
     & ~filters.private)
-async def chatonoff(client: Client, message: Message):
-    if not message.from_user:
-        return
-    else:
+async def chatbotofd(client, message):
+    vickdb = MongoClient(MONGO_URL)    
+    vick = vickdb["VickDb"]["Vick"]     
+    if message.from_user:
         user = message.from_user.id
         chat_id = message.chat.id
-        if user not in (await is_admins(chat_id)):
-            return await message.reply_text(
-                "**ʏᴏᴜ ᴀʀᴇ'ɴᴛ ᴀɴ ᴀᴅᴍɪɴ.**"
+        if user not in (
+           await is_admins(chat_id)
+        ):
+           return await message.reply_text(
+                "You are not admin"
             )
-        else:
-            await message.reply_text(
-            text="» <u>**ᴄʜᴏᴏsᴇ ᴀɴ ᴏᴩᴛɪᴏɴ ᴛᴏ ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**</u>",
-            reply_markup=InlineKeyboardMarkup(CHATBOT_ON),
-        )
+    is_vick = vick.find_one({"chat_id": message.chat.id})
+    if not is_vick:
+        vick.insert_one({"chat_id": message.chat.id})
+        await message.reply_text(f"Chatbot Disabled!")
+    if is_vick:
+        await message.reply_text(f"ChatBot Already Disabled")
+    
+
+@BRANDEDCHAT.on_message(
+    filters.command(["chatbot on", f"chatbot@{BOT_USERNAME} on"] ,prefixes=["/", ".", "?", "-"])
+    & ~filters.private)
+async def chatboton(client, message):
+    vickdb = MongoClient(MONGO_URL)    
+    vick = vickdb["VickDb"]["Vick"]     
+    if message.from_user:
+        user = message.from_user.id
+        chat_id = message.chat.id
+        if user not in (
+            await is_admins(chat_id)
+        ):
+            return await message.reply_text(
+                "You are not admin"
+            )
+    is_vick = vick.find_one({"chat_id": message.chat.id})
+    if not is_vick:           
+        await message.reply_text(f"Chatbot Already Enabled")
+    if is_vick:
+        vick.delete_one({"chat_id": message.chat.id})
+        await message.reply_text(f"ChatBot Enabled!")
+    
+
+@BRANDEDCHAT.on_message(
+    filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"], prefixes=["/", ".", "?", "-"])
+    & ~filters.private)
+async def chatbot(client, message):
+    await message.reply_text(f"**ᴜsᴀɢᴇ:**\n/**chatbot [on/off]**\n**ᴄʜᴀᴛ-ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅ(s) ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!**")
 
 
-@bot.on_message(
+@BRANDEDCHAT.on_message(
  (
         filters.text
         | filters.sticker
@@ -416,17 +368,17 @@ async def chatonoff(client: Client, message: Message):
     & ~filters.private
     & ~filters.bot,
 )
-async def queenai(client: Client, message: Message):
+async def vickai(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       BRANDEDDB = MongoClient(MONGO_URL)
-       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
-       is_BRANDED = BRANDED.find_one({"chat_id": message.chat.id})
-       if not is_queen:
-           await bot.send_chat_action(message.chat.id, "typing")
+       vickdb = MongoClient(MONGO_URL)
+       vick = vickdb["VickDb"]["Vick"] 
+       is_vick = vick.find_one({"chat_id": message.chat.id})
+       if not is_vick:
+           await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
            K = []  
            is_chat = chatai.find({"word": message.text})  
            k = chatai.find_one({"word": message.text})      
@@ -442,14 +394,14 @@ async def queenai(client: Client, message: Message):
                    await message.reply_text(f"{hey}")
    
    if message.reply_to_message:  
-       BRANDEDDB = MongoClient(MONGO_URL)
-       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
-       is_queen = queen.find_one({"chat_id": message.chat.id})    
-       getme = await bot.get_me()
+       vickdb = MongoClient(MONGO_URL)
+       vick = vickdb["VickDb"]["Vick"] 
+       is_vick = vick.find_one({"chat_id": message.chat.id})    
+       getme = await BRANDEDCHAT.get_me()
        bot_id = getme.id                             
        if message.reply_to_message.from_user.id == bot_id: 
-           if not is_queen:                   
-               await bot.send_chat_action(message.chat.id, "typing")
+           if not is_vick:                   
+               await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
                K = []  
                is_chat = chatai.find({"word": message.text})
                k = chatai.find_one({"word": message.text})      
@@ -474,7 +426,7 @@ async def queenai(client: Client, message: Message):
                    chatai.insert_one({"word": message.reply_to_message.text, "text": message.text, "check": "none"})    
                
 
-@bot.on_message(
+@BRANDEDCHAT.on_message(
  (
         filters.sticker
         | filters.text
@@ -482,17 +434,17 @@ async def queenai(client: Client, message: Message):
     & ~filters.private
     & ~filters.bot,
 )
-async def queenstickerai(client: Client, message: Message):
+async def vickstickerai(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       BRANDEDDB = MongoClient(MONGO_URL)
-       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
-       is_BRANDED = BRANDED.find_one({"chat_id": message.chat.id})
-       if not is_queen:
-           await bot.send_chat_action(message.chat.id, "typing")
+       vickdb = MongoClient(MONGO_URL)
+       vick = vickdb["VickDb"]["Vick"] 
+       is_vick = vick.find_one({"chat_id": message.chat.id})
+       if not is_vick:
+           await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
            K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})      
            k = chatai.find_one({"word": message.text})      
@@ -508,14 +460,14 @@ async def queenstickerai(client: Client, message: Message):
                    await message.reply_sticker(f"{hey}")
    
    if message.reply_to_message:
-       BRANDEDDB = MongoClient(MONGO_URL)
-       BRANDED = BRANDEDDB["BRANDEDDB"]["BRANDED"] 
-       is_BRANDED = BRANDED.find_one({"chat_id": message.chat.id})
-       getme = await bot.get_me()
+       vickdb = MongoClient(MONGO_URL)
+       vick = vickdb["VickDb"]["Vick"] 
+       is_vick = vick.find_one({"chat_id": message.chat.id})
+       getme = await BRANDEDCHAT.get_me()
        bot_id = getme.id
        if message.reply_to_message.from_user.id == bot_id: 
-           if not is_queen:                    
-               await bot.send_chat_action(message.chat.id, "typing")
+           if not is_vick:                    
+               await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
                K = []  
                is_chat = chatai.find({"word": message.text})
                k = chatai.find_one({"word": message.text})      
@@ -541,7 +493,7 @@ async def queenstickerai(client: Client, message: Message):
                
 
 
-@bot.on_message(
+@BRANDEDCHAT.on_message(
     (
         filters.text
         | filters.sticker
@@ -549,12 +501,12 @@ async def queenstickerai(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def queenprivate(client: Client, message: Message):
+async def vickprivate(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]
    if not message.reply_to_message: 
-       await bot.send_chat_action(message.chat.id, "typing")
+       await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
        K = []  
        is_chat = chatai.find({"word": message.text})                 
        for x in is_chat:
@@ -567,10 +519,10 @@ async def queenprivate(client: Client, message: Message):
        if not Yo == "sticker":
            await message.reply_text(f"{hey}")
    if message.reply_to_message:            
-       getme = await bot.get_me()
+       getme = await BRANDEDCHAT.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
-           await bot.send_chat_action(message.chat.id, "typing")
+           await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
            K = []  
            is_chat = chatai.find({"word": message.text})                 
            for x in is_chat:
@@ -584,7 +536,7 @@ async def queenprivate(client: Client, message: Message):
                await message.reply_text(f"{hey}")
        
 
-@bot.on_message(
+@BRANDEDCHAT.on_message(
  (
         filters.sticker
         | filters.text
@@ -592,12 +544,12 @@ async def queenprivate(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def queenprivatesticker(client: Client, message: Message):
+async def vickprivatesticker(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"] 
    if not message.reply_to_message:
-       await bot.send_chat_action(message.chat.id, "typing")
+       await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
        K = []  
        is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
        for x in is_chat:
@@ -610,10 +562,10 @@ async def queenprivatesticker(client: Client, message: Message):
        if not Yo == "text":
            await message.reply_sticker(f"{hey}")
    if message.reply_to_message:            
-       getme = await bot.get_me()
+       getme = await BRANDEDCHAT.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
-           await bot.send_chat_action(message.chat.id, "typing")
+           await BRANDEDCHAT.send_chat_action(message.chat.id, ChatAction.TYPING)
            K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
            for x in is_chat:
@@ -626,5 +578,5 @@ async def queenprivatesticker(client: Client, message: Message):
            if not Yo == "text":
                await message.reply_sticker(f"{hey}")
 
-print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ɴᴏᴡ ғᴜᴄᴋ ᴏғғ! ᴀɴᴅ ɢᴏ ᴛᴏ @Venom_Chatting ʙɪᴛᴄʜ!!")      
-bot.run()
+print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ!")      
+BRANDEDCHAT.run()
