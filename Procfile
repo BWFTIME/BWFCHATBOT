@@ -1,1 +1,1 @@
-BRANDEDCHAT: python3 main.py
+L2RCHATBOT: python3 main.py
