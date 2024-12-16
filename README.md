@@ -19,7 +19,7 @@
 
 ### sᴜᴘᴘᴏʀᴛ
 <p align="center"><a href="https://t.me/MUSICBOT_OWNER"> <img src="https://img.shields.io/badge/JOIN-SUPPORT%20GROUP-black?style=for-the-badge&logo=Telegram" width="220" height="38.5"/></a></p>
-<p align="center"><a href="https://t.me/BWF_MUSIC1"> <img src="https://img.shields.io/badge/JOIN-SUPPORT%20CHANNEL-black?style=for-the-badge&logo=Telegram" width="220" height="38.5"/></a></p>
+<p align="center"><a href="https://t.me/L2R_KING"> <img src="https://img.shields.io/badge/JOIN-SUPPORT%20CHANNEL-black?style=for-the-badge&logo=Telegram" width="220" height="38.5"/></a></p>
 
 ## ʀᴇᴘᴏ ᴄʀᴇᴅɪᴛ 
 - [💌ᴀsʜɪsʜ💌](https://github.com/BWFTIME)
