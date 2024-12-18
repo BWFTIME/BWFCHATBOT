@@ -16,9 +16,9 @@ API_HASH = os.environ.get("API_HASH", None)
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
 MONGO_URL = os.environ.get("MONGO_URL", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME","") 
-UPDATE_CHNL = os.environ.get("UPDATE_CHNL","L2R_KING")
+UPDATE_CHNL = os.environ.get("UPDATE_CHNL","SHAYRI_CHANNEL1")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","L2R_KING")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP","L2R_KING")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP","ALL_QUIZ_TAME")
 BOT_NAME = os.environ.get("BOT_NAME","CHATBOT")
 START_IMG = os.environ.get("START_IMG","https://telegra.ph/file/e576aa8308c49d945f433.jpg")
 
@@ -47,7 +47,7 @@ SOURCE_TEXT = f"""
 """
 SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
 SOURCE = 'https://github.com/BWFTIME/BWFCHATBOT'
-x=["❤️","🎉","✨","🪸","🎉","🎈","🎯"]
+x=["❤️","🎉","✨","🪸","🎉","🎈","💸"]
 g=choice(x)
 async def is_admins(chat_id: int):
     return [
@@ -59,39 +59,38 @@ async def is_admins(chat_id: int):
 
 MAIN = [
     [
-        InlineKeyboardButton(text="👑 ᴏᴡɴᴇʀ 👑", url=f"t.me/{OWNER_USERNAME}"),
-        InlineKeyboardButton(text="💌 ꜱᴜᴘᴘᴏʀᴛ 💌", url=f"https://t.me/{SUPPORT_GRP}"),
+        InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴘᴇʀ", url=f"https://t.me/{OWNER_USERNAME}"),
+        InlineKeyboardButton(text=" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
     [
         InlineKeyboardButton(
-            text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
+            text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="🚀 ʜᴇʟᴘ & ᴄᴍᴅs 🚀", callback_data="HELP"),
+        InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴍᴅs ", callback_data="HELP"),
     ],
     [
-        InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ❄️", callback_data="SOURCE"),
-        InlineKeyboardButton(text="☁️ ᴀʙᴏᴜᴛ ☁️", callback_data="ABOUT"),
+        InlineKeyboardButton(text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", callback_data='source'),
+        InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇs ", url=f"https://t.me/{UPDATE_CHNL}"),
     ],
 ]
 PNG_BTN = [
     [
          InlineKeyboardButton(
-             text="⛩️ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ⛩️",
+             text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ",
              url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
          ),
      ],
      [
-         InlineKeyboardButton(
-             text="💌 sᴜᴘᴘᴏʀᴛ 💌", 
-             url=f"https://t.me/{SUPPORT_GRP}",
+         InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", 
+                              url=f"https://t.me/{SUPPORT_GRP}",
          ),
      ],
 ]
 
-HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n||©️ @BRANDRD_BOT||"
+HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n||©️ @SHAYRI_CHANNEL1||"
 HELP_BACK = [
      
     [
@@ -132,13 +131,13 @@ async def restart(client, m: Message):
         accha = await m.reply_text(
                         text = f"{g}")
         await asyncio.sleep(1)
-        await accha.edit("👻ʜᴇʏ ɪ ᴀᴍ🍒 https://telegra.ph/file/e576aa8308c49d945f433.jpg  [🔊ᴏɴ♦️ᴏғғ🔇]")
+        await accha.edit("💨𝗚𝗥𝗢𝗨𝗣 𝗝𝗢𝗜𝗡 𝗞𝗥 𝗟𝗢 🌷°‌⁪༎꯭ࠫ𝆺𝅥•๋⸙‌ٖٖٖٖٖٖٜٖٖ 💌 🍷 https://t.me/BWF_MUSIC1 🍷💨𝗣𝗟𝗦 𝗜𝗡𝗧𝗘𝗭𝗔𝗥 𝗞𝗔𝗥 𝗥𝗛𝗜 𝗛𝗨 🍒🥀✨")
         await asyncio.sleep(0.5)
-        await accha.edit("💨𝗚𝗥𝗢𝗨𝗣 𝗝𝗢𝗜𝗡 𝗞𝗥 𝗟𝗢 🌷°‌⁪༎꯭ࠫ𝆺𝅥•๋⸙‌ٖٖٖٖٖٖٜٖٖ 💌 🍷 https://t.me/L2R_KING 🍷💨𝗣𝗟𝗦 𝗜𝗡𝗧𝗘𝗭𝗔𝗥 𝗞𝗔𝗥 𝗥𝗛𝗜 𝗛𝗨 🍒🥀✨")
+        await accha.edit("━━━━━━━━━━━━━━━━━━━━━━━━\n\n💨 ʜᴇʟʟᴏ, ᴍᴇ ɪs ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ ғᴀsᴛ ᴘʟᴀʏᴇʀ\nʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs⚚‎🍒 ..\n\n┏━━━━━━━━━━━━━━━━━┓\n┣💨 ᴄʀᴇᴀᴛᴇʀ    :<a href=\"https://t.me/BWF_MUSIC1\">ᴀsʜɪsʜ</a> \n┣💌 𝗦ԩ𝐚ʏя𝗼 › : <a href=\"https://t.me/SHAYRI_CHANNEL1\">𝗦ԩ𝐚ʏя𝗼</a> ┓ \n┣💬 sᴜᴘᴘᴏʀᴛ › : <a href=\"https://t.me/BWF_MUSIC1\">Gʀᴏᴜᴘꨄ︎ʙω͠ғ</a>\n┣👻 ʙω͠ғꨄ︎ᴍᴜsɪᴄ › : <a href=\"https://t.me/MUSICBOT_OWNER\">ɴᴇᴛᴡᴏʀᴋ</a> \n┣👑 ᴅᴍ ᴛᴏ ᴍʏ <a href=\"https://t.me/L2R_KING\">ᴏᴡɴᴇʀ</a>...\n━━━━━━━━━━━━━━━━━━━━━━━━")
         await asyncio.sleep(0.5)
-        await accha.edit("💨𝗚𝗥𝗢𝗨𝗣 𝗝𝗢𝗜𝗡 𝗞𝗥 𝗟𝗢 🌷°‌⁪༎꯭ࠫ𝆺𝅥•๋⸙‌ٖٖٖٖٖٖٜٖٖ 💌 🍷 https://t.me/L2R_KING 🍷💨𝗣𝗟𝗦 𝗜𝗡𝗧𝗘𝗭𝗔𝗥 𝗞𝗔𝗥 𝗥𝗛𝗜 𝗛𝗨 🍒🥀✨")
+        await accha.edit("━━━━━━━━━━━━━━━━━━━━━━━━\n\n💨 ʜᴇʟʟᴏ, ᴍᴇ ɪs ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ ғᴀsᴛ ᴘʟᴀʏᴇʀ\nʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs⚚‎🍒 ..\n\n┏━━━━━━━━━━━━━━━━━┓\n┣💨 ᴄʀᴇᴀᴛᴇʀ    :<a href=\"https://t.me/BWF_MUSIC1\">ᴀsʜɪsʜ</a> \n┣💌 𝗦ԩ𝐚ʏя𝗼 › : <a href=\"https://t.me/SHAYRI_CHANNEL1\">𝗦ԩ𝐚ʏя𝗼</a> ┓ \n┣💬 sᴜᴘᴘᴏʀᴛ › : <a href=\"https://t.me/BWF_MUSIC1\">Gʀᴏᴜᴘꨄ︎ʙω͠ғ</a>\n┣👻 ʙω͠ғꨄ︎ᴍᴜsɪᴄ › : <a href=\"https://t.me/MUSICBOT_OWNER\">ɴᴇᴛᴡᴏʀᴋ</a> \n┣👑 ᴅᴍ ᴛᴏ ᴍʏ <a href=\"https://t.me/L2R_KING\">ᴏᴡɴᴇʀ</a>...\n━━━━━━━━━━━━━━━━━━━━━━━━")
         await asyncio.sleep(0.5)
-        await accha.delete()
+        await accha.delete("━━━━━━━━━━━━━━━━━━━━━━━━\n\n💨 ʜᴇʟʟᴏ, ᴍᴇ ɪs ʙω͠ғ ᴄʜᴀᴛʙᴏᴛ ғᴀsᴛ ᴘʟᴀʏᴇʀ\nʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs⚚‎🍒 ..\n\n┏━━━━━━━━━━━━━━━━━┓\n┣💨 ᴄʀᴇᴀᴛᴇʀ    :<a href=\"https://t.me/BWF_MUSIC1\">ᴀsʜɪsʜ</a> \n┣💌 𝗦ԩ𝐚ʏя𝗼 › : <a href=\"https://t.me/SHAYRI_CHANNEL1\">𝗦ԩ𝐚ʏя𝗼</a> ┓ \n┣💬 sᴜᴘᴘᴏʀᴛ › : <a href=\"https://t.me/BWF_MUSIC1\">Gʀᴏᴜᴘꨄ︎ʙω͠ғ</a>\n┣👻 ʙω͠ғꨄ︎ᴍᴜsɪᴄ › : <a href=\"https://t.me/MUSICBOT_OWNER\">ɴᴇᴛᴡᴏʀᴋ</a> \n┣👑 ᴅᴍ ᴛᴏ ᴍʏ <a href=\"https://t.me/L2R_KING\">ᴏᴡɴᴇʀ</a>...\n━━━━━━━━━━━━━━━━━━━━━━━━")
         umm = await m.reply_sticker(
                   sticker = STKR,
         )
@@ -149,6 +148,8 @@ async def restart(client, m: Message):
             caption=START,
             reply_markup=InlineKeyboardMarkup(MAIN),
         )
+
+
 @BRANDEDCHAT.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
     if query.data == "HELP":
@@ -189,7 +190,7 @@ async def ping(client, message: Message):
         ms = (end-start).microseconds / 1000
         await message.reply_photo(
                              photo=START_IMG,
-                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [BRANDED KING](https://t.me/BRANDEDKING82)||**",
+                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [༄𝐿2𝙍.🜲𝐊𝐈𝐍𝐆❦︎](https://t.me/ALL_QUIZ_TAME)||**",
                              reply_markup=InlineKeyboardMarkup(PNG_BTN),
        )
 
