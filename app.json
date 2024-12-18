@@ -14,7 +14,7 @@
             "required": false
         },
         "OWNER_USERNAME": {
-            "description": "Owner id without ",
+            "description": "Owner Username without @",
             "required": false
         },
         "BOT_NAME": {
