@@ -1,1 +1,1 @@
-L2RKINGCHAT: python3 main.py
+L2RKINGCH: python3 main.py
