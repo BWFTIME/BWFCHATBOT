@@ -47,7 +47,7 @@ SOURCE_TEXT = f"""
 """
 SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
 SOURCE = 'https://github.com/BWFTIME/BWFCHATBOT'
-x=["❤️","🎉","✨","🪸","🎉","🎈","💸"]
+x=["❤️","😱","✨","🪸","🎉","🎈","💸"]
 g=choice(x)
 async def is_admins(chat_id: int):
     return [
