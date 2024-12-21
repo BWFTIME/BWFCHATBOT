@@ -1,1 +1,1 @@
-L2RKINGCHAT: python3 main.py
+Vick: python3 main.py
