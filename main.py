@@ -24,7 +24,7 @@ START_IMG = os.environ.get("START_IMG","https://telegra.ph/file/e576aa8308c49d94
 
 STKR = os.environ.get("STKR")
 
-
+# ༄𝐿 2 𝙍.🖤🜲𝐊𝐈𝐍𝐆❦︎ 𝆺𝅥⃝🍷
 StartTime = time.time()
 L2RKINGCHAT = Client(
     "chat-bot" ,
