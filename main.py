@@ -1,54 +1,75 @@
-from pyrogram import Client, filters
-from pyrogram.types import *
-from pymongo import MongoClient
-from pyrogram.enums import ChatAction
-import requests
-import random
-from random import choice
-import os
-import re
 import asyncio
+import os
 import time
-from datetime import datetime
-from pyrogram import enums
-API_ID = os.environ.get("API_ID", None) 
-API_HASH = os.environ.get("API_HASH", None) 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
-MONGO_URL = os.environ.get("MONGO_URL", None)
-BOT_USERNAME = os.environ.get("BOT_USERNAME","") 
-UPDATE_CHNL = os.environ.get("UPDATE_CHNL","SHAYRI_CHANNEL1")
-OWNER_USERNAME = os.environ.get("OWNER_USERNAME","L2R_KING")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP","ALL_QUIZ_TAME")
-BOT_NAME = os.environ.get("BOT_NAME","CHATBOT")
-START_IMG = os.environ.get("START_IMG","https://telegra.ph/file/e576aa8308c49d945f433.jpg")
+from random import choice
 
+from pymongo import MongoClient
+from pyrogram import Client, filters, enums, idle
+from pyrogram.types import (
+    Message,
+    InlineKeyboardMarkup,
+    InlineKeyboardButton
+)
+from pyrogram.errors import UserNotParticipant, ChatWriteForbidden, ChatAdminRequired
+
+# ================= ENVIRONMENT VARIABLES =================
+
+API_ID = int(os.environ.get("API_ID", 0))
+API_HASH = os.environ.get("API_HASH", "")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+MONGO_URL = os.environ.get("MONGO_URL", "")
+
+BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
+UPDATE_CHNL = os.environ.get("UPDATE_CHNL", "SHAYRI_CHANNEL1")
+OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "L2R_KING")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP", "ALL_QUIZ_TAME")
+BOT_NAME = os.environ.get("BOT_NAME", "CHATBOT")
+START_IMG = os.environ.get(
+    "START_IMG",
+    "https://telegra.ph/file/e576aa8308c49d945f433.jpg"
+)
 STKR = os.environ.get("STKR")
 
-
 StartTime = time.time()
+
+# ================= DATABASE =================
+
+mongo = MongoClient(MONGO_URL) if MONGO_URL else None
+
+# ================= CLIENT =================
+
 BRANDEDCHAT = Client(
-    "chat-bot" ,
-    api_id = API_ID,
-    api_hash = API_HASH ,
-    bot_token = BOT_TOKEN
+    "chat-bot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN,
+    in_memory=True
 )
-START =f"""
-**๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}**
-**➻ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**
-**──────────────────**
-**➻ ᴜsᴀɢᴇ /chatbot [on/off]**
-**๏ ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴜsᴇ /help**
-"""
-SOURCE_TEXT = f"""
-**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]
-➻ ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.
+
+# ================= TEXTS & BUTTONS =================
+
+START = f"""
+๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}
+➻ ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ
 ──────────────────
-ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ**
+➻ ᴜsᴀɢᴇ : /chatbot on | off
+➻ ʜᴇʟᴘ : /help
 """
-SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
-SOURCE = 'https://github.com/BWFTIME/BWFCHATBOT'
-x=["❤️","🎉","✨","🪸","🎉","🎈","💸"]
-g=choice(x)
+
+MAIN = [
+    [
+        InlineKeyboardButton("💬 Support", url=f"https://t.me/{SUPPORT_GRP}"),
+        InlineKeyboardButton("📢 Updates", url=f"https://t.me/{UPDATE_CHNL}")
+    ],
+    [
+        InlineKeyboardButton("👑 Owner", url=f"https://t.me/{OWNER_USERNAME}")
+    ]
+]
+
+x = ["❤️", "🎉", "✨", "🪸", "🎈", "💸"]
+g = choice(x)
+
+# ================= FUNCTIONS =================
 async def is_admins(chat_id: int):
     return [
         member.user.id
