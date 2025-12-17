@@ -172,7 +172,7 @@ async def restart(client, m: Message):
 
 
 @BRANDEDCHAT.on_callback_query()
-async def cb_handler(Client, query: CallbackQuery):
+async def cb_handler(Client, query: 'CallbackQuery'):
     if query.data == "HELP":
      await query.message.edit_text(
                       text = HELP_READ,
